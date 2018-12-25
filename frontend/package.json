@@ -53,5 +53,8 @@
 		"stylus-loader": "^3.0.1",
 		"webpack": "^2.3.2",
 		"webpack-dev-server": "^2.4.2"
+	},
+	"dependencies": {
+		"rc-table": "^6.4.2"
 	}
 }

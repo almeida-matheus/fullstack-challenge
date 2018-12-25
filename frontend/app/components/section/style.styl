@@ -1,7 +1,12 @@
 .section
 	display: flex
-	flex-direction: column;
+	flex-direction: column
+	justify-content: center
+	align-items: center
 	position: relative
 	width: 100%
-	height: 100%;
-	padding: 10px;
+	padding: var(--section-padding)
+
+@media (min-width: 960px)
+	.section
+		flex-direction: row

@@ -4,8 +4,10 @@ import style from './style.styl';
 class NavbarComponent extends Component {
 	render () {
 		return (
-			<nav className={`${style.default}`}>
-
+			<nav className={`${style.navbar}`}>
+				{
+					this.props.children
+				}
 			</nav>
 		);
 	}
