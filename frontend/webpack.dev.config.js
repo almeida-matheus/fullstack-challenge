@@ -46,7 +46,7 @@ export default {
 						loader: 'style-loader'
 					},
 					{
-						loader: 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!autoprefixer-loader?{browsers:["last 2 version", "Firefox 15"]}'
+						loader: 'css-loader?modules&importLoaders=1&localIdentName=[local]!autoprefixer-loader?{browsers:["last 2 version", "Firefox 15"]}'
 					},
 					{
 						loader: 'stylus-loader'

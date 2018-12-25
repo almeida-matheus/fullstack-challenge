@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Section from '../../components/section';
 import Navbar from '../../components/navbar';
 import InputTextComponent from '../../components/input-text';
+import TableComponent from '../../components/table';
 import ButtonComponent from '../../components/button';
 import style from './style.styl';
 
@@ -35,12 +36,10 @@ class AppContainer extends Component {
 					</div>
 				</Section>
 				<Section>
-					<div>
-						table
-					</div>
-					<div>
+					<TableComponent />
+					{/* <div>
 						graph
-					</div>
+					</div> */}
 				</Section>
 			</div>
 		);

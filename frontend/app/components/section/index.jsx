@@ -5,7 +5,7 @@ class SectionComponent extends Component {
 
 	render () {
 		return (
-			<section className={`${style.section}`}>
+			<section className={`${style.section} -striped -highlight`}>
 				{
 					this.props.children
 				}
