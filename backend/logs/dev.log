@@ -1,0 +1,16 @@
+{"level":"info","message":"HTTP Server: Listering on 0.0.0.0:7070","timestamp":"2018-12-26T12:16:35.789Z"}
+{"level":"info","message":"REQUESTING API: URL /","timestamp":"2018-12-26T12:16:46.107Z"}
+{"level":"info","message":"REQUESTING API: URL /favicon.ico","timestamp":"2018-12-26T12:16:46.136Z"}
+{"level":"info","message":"HTTP Server: Listering on 0.0.0.0:7070","timestamp":"2018-12-26T12:22:58.985Z"}
+{"level":"info","message":"REQUESTING API: URL /","timestamp":"2018-12-26T12:23:02.447Z"}
+{"level":"info","message":"REQUESTING API: URL /favicon.ico","timestamp":"2018-12-26T12:23:02.471Z"}
+{"level":"info","message":"HTTP Server: Listering on 0.0.0.0:7070","timestamp":"2018-12-26T12:23:19.095Z"}
+{"level":"info","message":"HTTP Server: Listering on 0.0.0.0:7070","timestamp":"2018-12-26T12:23:52.827Z"}
+{"level":"info","message":"REQUESTING API: URL /","timestamp":"2018-12-26T12:23:55.665Z"}
+{"level":"info","message":"REQUESTING API: URL /favicon.ico","timestamp":"2018-12-26T12:23:55.693Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-26T12:23:59.834Z"}
+{"level":"info","message":"HTTP Server: Listering on 0.0.0.0:7070","timestamp":"2018-12-26T12:24:02.390Z"}
+{"level":"info","message":"HTTP Server: Listering on 0.0.0.0:7070","timestamp":"2018-12-26T12:24:09.302Z"}
+{"level":"info","message":"HTTP Server: Listering on 0.0.0.0:7070","timestamp":"2018-12-26T12:24:12.771Z"}
+{"level":"info","message":"HTTP Server: Listering on 0.0.0.0:7070","timestamp":"2018-12-26T12:24:13.007Z"}
+{"level":"info","message":"HTTP Server: Listering on 0.0.0.0:7070","timestamp":"2018-12-26T12:24:19.977Z"}
