@@ -4,10 +4,18 @@ import React, {
 
 export default class ButtonComponent extends Component {
 	render () {
+		const {
+			onClick,
+			text
+		} = this.props;
+
 		return (
-			<button className={'button default'}>
+			<button
+				className={'button default'}
+				onClick={onClick}
+			>
 				{
-					this.props.text.toUpperCase()
+					text.toUpperCase()
 				}
 			</button>
 		);

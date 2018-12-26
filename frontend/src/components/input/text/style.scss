@@ -1,0 +1,27 @@
+.input-form-container {
+	display: flex;
+	flex-direction: column;
+	width: 220px;
+	margin: 10px;
+
+	.input-text {
+		height: 40px;
+		width: 220px;
+		border-radius: 2px;
+		border: 2px transparent solid;
+		padding-left: 20px;
+		transition: all 0.5s ease;
+
+		&.danger {
+			border: 2px $brand-danger solid;
+		}
+	}
+
+	.error-label {
+		transition: all 0.5s ease;
+		margin-top: 15px;
+		color: $brand-danger;
+		font-size: 14px;
+		font-weight: 600;
+	}
+}

@@ -2,14 +2,15 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	min-height: $navbar-height;
+	min-height: 100px;
 	background-color: $brand-info;
 	flex-direction: column;
-	padding: $navbar-padding;
+	padding: 50px;
 }
 
 @media (min-width: $breaking-point-desktop) {
 	.navbar {
-		flex-direction: row
+		flex-direction: row;
+		align-items: flex-start;
 	}
 }

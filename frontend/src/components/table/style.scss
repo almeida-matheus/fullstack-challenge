@@ -16,11 +16,11 @@
 					align-items: center;
 					justify-content: center;
 					text-align: center;
-					border: $table-th-border;
-					padding: $table-rt-th-padding;
+					border: 2px $brand-default solid;
+					padding: 20px;
 					background-color: $table-rt-th-background-color;
 					color: $table-rt-th-color;
-					font-size: $table-title-rt-td-font-size;
+					font-size: 18px;
 					cursor: pointer;
 				}
 			}
@@ -37,10 +37,10 @@
 					justify-content: center;
 					align-items: center;
 					text-align: center;
-					border: $table-td-border;
-					padding: $table-rt-td-padding;
+					border: 2px $brand-default solid;
+					padding: 20px;
 					color: $table-rt-td-color;
-					font-size: $table-title-rt-td-font-size;
+					font-size: 18px;
 				}
 			}
 		}
@@ -51,22 +51,22 @@
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
-			margin-top: $pagination-margin-top;
+			margin-top: 20px;
 
 			.-pageInfo {
-				font-size: $pagination-page-info-font-size;
+				font-size: 17px;
 				color: $pagination-page-info-color;
 			}
 
 			.-next {
-				font-size: $pagination-navigation-text-font-size;
+				font-size: 20px;
 				button {
 					cursor: pointer;
 				}
 			}
 
 			.-previous {
-				font-size: $pagination-navigation-text-font-size;
+				font-size: 20px;
 				button {
 					cursor: pointer;
 				}

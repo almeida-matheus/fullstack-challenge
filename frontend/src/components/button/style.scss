@@ -1,13 +1,13 @@
 .button {
-	height: $button-height;
-	width: $button-width;
-	border-radius: $button-border-radius;
-	margin: $button-margin;
+	height: 40px;
+	width: 100px;
+	border-radius: 4px;
+	margin: 10px;
 	cursor: pointer;
 }
 
 .default {
-	border: $button-default-border;
-	color: $button-default-text-color;
-	font-weight: $button-default-font-weight;
+	border: 1.5px solid $brand-default;
+	color: $brand-default;
+	font-weight: 700;
 }
