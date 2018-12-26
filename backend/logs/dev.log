@@ -130,3 +130,4 @@
 {"level":"info","message":"HTTP Server: Listering on 0.0.0.0:7070","timestamp":"2018-12-26T13:26:37.607Z"}
 {"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-26T13:26:40.137Z"}
 {"level":"info","message":"HTTP Server: Listering on 0.0.0.0:7070","timestamp":"2018-12-26T13:27:37.408Z"}
+{"level":"info","message":"HTTP Server: Listering on 0.0.0.0:7070","timestamp":"2018-12-26T18:17:44.835Z"}

@@ -8,17 +8,41 @@ import TextComponent from './text';
 class InputComponent extends Component {
 	render () {
 		const {
-			type
+			type,
+			err,
+			label
 		} = this.props;
+
+		let inputComponent = null;
 
 		switch (type) {
 			case 'text':
-				return (<TextComponent {...this.props} />);
+				inputComponent = (<TextComponent {...this.props} />);
+				break;
 			case 'number':
-				return (<NumberComponent {...this.props} />);
+				inputComponent = (<NumberComponent {...this.props} />);
+				break;
 			default:
-				return null;
+				inputComponent = null;
+				break;
 		}
+
+		return (
+			<div className={'input-form-container'}>
+				{
+					inputComponent
+				}
+				{
+					err ? (
+						<label className={'error-label'}>
+							{
+								label
+							}
+						</label>
+					) : null
+				}
+			</div>
+		)
 	}
 }
 

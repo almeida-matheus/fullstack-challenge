@@ -18,16 +18,14 @@ class AppContainer extends Component {
 			lastName: '',
 			participation: 0,
 			firstNameHasError: false,
-			lastNameHasError: false,
-			participationHasError: false
+			lastNameHasError: false
 		};
 	}
 
 	handleClickSend = () =>  {
 		this.setState({
 			firstNameHasError: true,
-			lastNameHasError: true,
-			participationHasError: true
+			lastNameHasError: true
 		});
 	}
 
@@ -43,13 +41,11 @@ class AppContainer extends Component {
 	validateForm = (fieldKey, fieldValue) => {
 		let {
 			firstNameHasError,
-			lastNameHasError,
-			participationHasError
+			lastNameHasError
 		} = this.state;
 
 		// let firstNameHasError = false;
 		// let lastNameHasError = false;
-		// let participationHasError = false;
 
 		switch (fieldKey) {
 			case 'firstName':
@@ -71,33 +67,21 @@ class AppContainer extends Component {
 
 				break;
 
-			case 'participation':
-				if (fieldValue.length < 2 || fieldValue.length > 20) {
-					participationHasError = true;
-				} else {
-					participationHasError = false;
-				}
-
-				break;
-
 			default:
 				break;
 		}
 
 		this.setState({
 			firstNameHasError,
-			lastNameHasError,
-			participationHasError
+			lastNameHasError
 		})
 	}
 
 	render () {
 		const {
 			firstNameHasError,
-			lastNameHasError,
-			participationHasError
+			lastNameHasError
 		} = this.state;
-
 
 		return (
 			<div className='app-container'>
@@ -119,9 +103,8 @@ class AppContainer extends Component {
 					<InputComponent
 						type={"number"}
 						placeholder="Participation"
-						err={participationHasError}
+						err={false}
 						onChange={(participation) => this.onTypeText('participation', participation)}
-						label={constants.formErrors.participationLength}
 						min={1}
 						max={100}
 						value={2}
@@ -129,7 +112,6 @@ class AppContainer extends Component {
 					<ButtonComponent
 						text="Send"
 						onClick={this.handleClickSend}
-						err={participationHasError}
 						onChange={(nameSignup) => this.setState({ nameSignup })}
 					/>
 				</Navbar>

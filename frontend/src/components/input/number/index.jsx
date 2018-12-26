@@ -13,18 +13,24 @@ export default class InputNumberComponent extends Component {
 			min,
 			max,
 			value,
-			placeholder
+			placeholder,
+			err
 		} = this.props;
 
+		const inputClassName = `input-number ${err ? 'danger' : false}`;
+
 		return (
-			<NumericInput
-				min={min}
-				max={max}
-				value={value}
-				placeholder={placeholder}
-				className={"input-number"}
-				strict
-			/>
+			<div className={'input-number-container'}>
+				<NumericInput
+					min={min}
+					max={max}
+					value={value}
+					placeholder={placeholder}
+					className={inputClassName}
+					strict
+					mobile
+				/>
+			</div>
 		);
 	}
 }
