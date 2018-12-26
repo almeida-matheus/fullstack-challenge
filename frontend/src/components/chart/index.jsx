@@ -6,42 +6,27 @@ import {
 	Doughnut
 } from 'react-chartjs-2';
 
-//
-// import {
-// 	Doughnut
-// } from 'react-chartjs';
-
 export default class ChartComponent extends Component {
 	render () {
 		const {
 			width,
-			height
+			height,
+			data,
+			labels
 		} = this.props;
 
-		const data = {
+		const chartData = {
 			datasets: [{
-				data: [
-					10,
-					11,
-					15,
-					20,
-					10,
-				],
+				data: data,
 				backgroundColor: [
-					'red',
-					'yellow',
-					'green',
-					'blue',
-					'blue',
+					'#faa577',
+					'#f2c888',
+					'#c4dda9',
+					'#9bd2ad',
+					'#5da78f',
 				]
 			}],
-			labels: [
-				'Hiago Silva',
-				'Carlos Moura',
-				'Eliza Souza',
-				'Fernando Oliveira',
-				'Anderson Santos'
-			]
+			labels: labels
 		};
 
 		const options = {
@@ -53,12 +38,20 @@ export default class ChartComponent extends Component {
 					boxWidth: 20,
 					padding: 20
 				}
+			},
+			tooltips: {
+				callbacks: {
+					label: (tooltipItem, data) => {
+						var amount = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+						return amount + "%";
+					}
+				}
 			}
 		};
 
 		return (
 			<Doughnut
-				data={data}
+				data={chartData}
 				options={options}
 				width={width}
 				height={height}

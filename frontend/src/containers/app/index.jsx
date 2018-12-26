@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import Section from '../../components/section';
 import Navbar from '../../components/navbar';
 import ChartComponent from '../../components/chart';
 import TableComponent from '../../components/table';
 import ButtonComponent from '../../components/button';
 import InputComponent from '../../components/input';
+import * as participationActions from '../../actions/participation';
 
 import constants from '../../constants';
 
 class AppContainer extends Component {
 	constructor (props) {
 		super(props);
+
+		const {
+			participationActions
+		} = this.props;
 
 		this.state = {
 			firstName: '',
@@ -20,6 +26,8 @@ class AppContainer extends Component {
 			firstNameHasError: false,
 			lastNameHasError: false
 		};
+
+		participationActions.requestParticipations();
 	}
 
 	handleClickSend = () =>  {
@@ -43,9 +51,6 @@ class AppContainer extends Component {
 			firstNameHasError,
 			lastNameHasError
 		} = this.state;
-
-		// let firstNameHasError = false;
-		// let lastNameHasError = false;
 
 		switch (fieldKey) {
 			case 'firstName':
@@ -78,16 +83,39 @@ class AppContainer extends Component {
 	}
 
 	render () {
+		let chartData = [];
+		let chartLabels = [];
+
 		const {
 			data
 		} = this.props;
 
-		console.log(data)
+		const {
+			result
+		} = data;
+
+		const columns = [
+			{
+				Header: 'First name',
+				accessor: 'firstName'
+			},
+			{
+				Header: 'Last name',
+				accessor: 'lastName'
+			},
+			{
+				Header: 'Participation',
+				accessor: 'participation'
+			}
+		];
 
 		const {
 			firstNameHasError,
 			lastNameHasError
 		} = this.state;
+
+		chartData = result.map((model) => model.participation);
+		chartLabels = result.map((model) => `${model.firstName } ${model.lastName}`);
 
 		return (
 			<div className='app-container'>
@@ -131,7 +159,10 @@ class AppContainer extends Component {
 					<div
 						className={'section-content'}
 					>
-						<TableComponent />
+						<TableComponent
+							columns={columns}
+							data={result}
+						/>
 					</div>
 					<div
 						className={'section-content chart-container'}
@@ -139,6 +170,8 @@ class AppContainer extends Component {
 						<ChartComponent
 							width={320}
 							height={320}
+							data={chartData}
+							labels={chartLabels}
 						/>
 					</div>
 				</Section>
@@ -153,4 +186,10 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export default connect(mapStateToProps)(AppContainer);
+const mapDispatchToProps = (dispatch) => {
+	return {
+		participationActions: bindActionCreators(participationActions, dispatch)
+	};
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);
