@@ -22,12 +22,14 @@
     "compression": "^1.7.0",
     "cors": "^2.8.3",
     "express": "^4.15.3",
+    "express-validator": "^5.3.1",
     "googleapis": "^20.1.0",
     "helmet": "^3.6.1",
     "mongoose": "^4.11.1",
     "morgan": "^1.8.2",
     "querystring": "^0.2.0",
     "socket.io": "^2.0.4",
+    "uuid": "^3.3.2",
     "winston": "^2.3.1"
   },
   "devDependencies": {
