@@ -1,10 +1,10 @@
 import {
 	combineReducers,
 } from 'redux';
-import teste from './teste';
+import participationReducer from './participation';
 
 const rootReducer = combineReducers({
-	teste
+	participations: participationReducer
 });
 
 export default rootReducer;

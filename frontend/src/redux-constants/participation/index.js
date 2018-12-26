@@ -1,0 +1,5 @@
+const GET_PARTICIPATIONS = 'GET_PARTICIPATIONS';
+
+export default {
+	GET_PARTICIPATIONS
+};

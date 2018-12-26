@@ -79,6 +79,12 @@ class AppContainer extends Component {
 
 	render () {
 		const {
+			data
+		} = this.props;
+
+		console.log(data)
+
+		const {
 			firstNameHasError,
 			lastNameHasError
 		} = this.state;
@@ -143,7 +149,7 @@ class AppContainer extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		data: state.artists,
+		data: state.participations,
 	};
 };
 
