@@ -11,6 +11,7 @@ import variablesStyl from './styles/variables.styl';
 
 const store = configureStore();
 
+
 render(
 	<Provider store={store}>
 		<Router history={browserHistory} routes={getRoutes(store)} />
