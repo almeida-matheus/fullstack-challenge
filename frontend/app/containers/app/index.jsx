@@ -19,6 +19,7 @@ class AppContainer extends Component {
 				<Navbar>
 					<InputTextComponent
 						placeholder="First name"
+						err
 					/>
 					<InputTextComponent
 						placeholder="Last name"
