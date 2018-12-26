@@ -6,7 +6,8 @@ const uuidv1 = require('uuid/v1');
 exports.getParticipations = (req, res) => {
 	res.status(200).json({
 		success: true,
-		result: participationRepository.getAllParticipations()
+		result: participationRepository.getAllParticipations(),
+		errors: []
 	});
 };
 
@@ -34,8 +35,6 @@ exports.postParticipation = (req, res) => {
 
 		participationRepository.addParticipation(participationModel);
 
-		res.status(200).json({
-			success: true
-		});
+		this.getParticipations(req, res);
 	}
 };

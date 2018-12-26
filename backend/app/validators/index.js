@@ -18,6 +18,6 @@ module.exports.participationValidator = () => {
 
 				return !((parseInt(value, 0) + parseInt(participationPercentage, 0)) > 100);
 			})
-			.withMessage('SADOIHASIODHAISDHASHD')
+			.withMessage(constants.EXPRESS_VALIDATION_MESSAGES.PARTICIPATION_MAX_VALUE_EXCEEDED)
 	];
 };

@@ -1,7 +1,7 @@
-var chai = require("chai");
-var chaiHttp = require('chai-http');
-var chaiThings = require('chai-things');
-var constants = require('../app/modules/constants');
+const chai = require('chai');
+const chaiHttp = require('chai-http');
+const chaiThings = require('chai-things');
+const constants = require('../app/modules/constants');
 chai.should();
 chai.use(chaiThings);
 chai.use(chaiHttp);
