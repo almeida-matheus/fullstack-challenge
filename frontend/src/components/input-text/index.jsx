@@ -1,7 +1,6 @@
 import React, {
 	Component
 } from 'react';
-import style from './style.styl';
 
 export default class InputTextComponent extends Component {
 	render () {
@@ -9,7 +8,7 @@ export default class InputTextComponent extends Component {
 			err
 		} = this.props;
 
-		const inputClassName = `${style['input-text']} ${err ? style.danger : false}`;
+		const inputClassName = `input-text ${err ? 'danger' : false}`;
 
 		return (
 			<input

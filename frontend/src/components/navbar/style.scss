@@ -1,0 +1,15 @@
+.navbar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: $navbar-height;
+	background-color: $brand-info;
+	flex-direction: column;
+	padding: $navbar-padding;
+}
+
+@media (min-width: $breaking-point-desktop) {
+	.navbar {
+		flex-direction: row
+	}
+}

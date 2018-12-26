@@ -2,7 +2,6 @@ import React, {
 	Component
 } from 'react';
 import ReactTable from 'react-table';
-import style from './style.styl';
 
 export default class TableComponent extends Component {
 	render () {
@@ -83,7 +82,7 @@ export default class TableComponent extends Component {
 				defaultPageSize={4}
 				showPageJump={false}
 				loadingText=''
-				className={`${style.table}`}
+				className={'table'}
 			/>
 		);
 	}

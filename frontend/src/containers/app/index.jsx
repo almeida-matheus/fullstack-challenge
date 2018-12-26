@@ -1,23 +1,3 @@
-// import React, { Component } from 'react';
-//
-//
-// class AppContainer extends Component {
-// 	render () {
-// 		// const {
-// 		// 	data
-// 		// } = this.props;
-//
-// 		return (
-// 			<div>
-// 				TESTEEEEEEEEEEEEe
-// 			</div>
-// 		);
-// 	}
-// }
-//
-// export default AppContainer
-
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Section from '../../components/section';
@@ -26,18 +6,16 @@ import InputTextComponent from '../../components/input-text';
 import ChartComponent from '../../components/chart';
 import TableComponent from '../../components/table';
 import ButtonComponent from '../../components/button';
-//import style from './style.styl';
 
 class AppContainer extends Component {
 
 	render () {
-		const style = {};
 		// const {
 		// 	data
 		// } = this.props;
 
 		return (
-			<div>
+			<div className='app-container'>
 				<Navbar>
 					<InputTextComponent
 						placeholder="First name"
@@ -55,18 +33,18 @@ class AppContainer extends Component {
 				</Navbar>
 				<Section>
 					<div>
-						<h1 className={`${style.title}`}> DATA </h1>
-						<p className={`${style.desc}`}> Lorem ipsum dolor sit amet consectetur adipiscing elit </p>
+						<h1 className={'title'}> DATA </h1>
+						<p className={'desc'}> Lorem ipsum dolor sit amet consectetur adipiscing elit </p>
 					</div>
 				</Section>
 				<Section>
 					<div
-						className={`${style['section-content']}`}
+						className={'section-content'}
 					>
 						<TableComponent />
 					</div>
 					<div
-						className={`${style['section-content']} ${style['chart-container']}`}
+						className={'section-content chart-container'}
 					>
 						<ChartComponent
 							width={320}

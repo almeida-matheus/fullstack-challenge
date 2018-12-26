@@ -1,12 +1,11 @@
 import React, {
 	Component
 } from 'react';
-import style from './style.styl';
 
 export default class ButtonComponent extends Component {
 	render () {
 		return (
-			<button className={`${style.button} ${style.default}`}>
+			<button className={'button default'}>
 				{
 					this.props.text.toUpperCase()
 				}

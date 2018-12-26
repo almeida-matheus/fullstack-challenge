@@ -1,0 +1,16 @@
+.section {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	width: 100%;
+	padding: $section-padding;
+}
+
+
+@media (min-width: $breaking-point-desktop) {
+	.section {
+		flex-direction: row;
+	}
+}

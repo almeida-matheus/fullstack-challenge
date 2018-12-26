@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import style from './style.styl';
-
 class SectionComponent extends Component {
-
 	render () {
 		return (
-			<section className={`${style.section} -striped -highlight`}>
+			<section className={'section -striped -highlight'}>
 				{
 					this.props.children
 				}

@@ -1,0 +1,13 @@
+.button {
+	height: $button-height;
+	width: $button-width;
+	border-radius: $button-border-radius;
+	margin: $button-margin;
+	cursor: pointer;
+}
+
+.default {
+	border: $button-default-border;
+	color: $button-default-text-color;
+	font-weight: $button-default-font-weight;
+}

@@ -1,24 +1,35 @@
-// .title
-// 	text-align: center
-// 	color: var(--brand-text-dark)
-// .desc
-// 	text-align: center
-// 	color: var(--brand-text-dark)
-//
-// .section-content
-// 	width: 100%
-//
-// .chart-container
-// 	display: flex
-// 	align-items: center
-// 	justify-content: center
-// 	padding: 0
-// 	margin-top: 100px
-//
-// @media (min-width: 960px)
-// 	.section-content
-// 		width: 35%
-//
-// 	.chart-container
-// 		padding: 0
-// 		margin-top: 0
+.app-container {
+
+	.title {
+		text-align: center;
+		color: $brand-text-dark;
+	}
+
+	.desc {
+		text-align: center;
+		color: $brand-text-dark;
+	}
+
+	.section-content {
+		width: 100%;
+	}
+
+	.chart-container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0;
+		margin-top: 100px;
+	}
+
+	@media (min-width: $breaking-point-desktop) {
+		.section-content {
+			width: 35%;
+		}
+
+		.chart-container {
+			padding: 0;
+			margin-top: 0;
+		}
+	}
+}

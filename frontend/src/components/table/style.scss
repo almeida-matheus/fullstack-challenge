@@ -1,0 +1,76 @@
+.table {
+	display: flex;
+	flex-direction: column;
+
+	.rt-table {
+		width: 100%;
+
+		.rt-thead {
+			min-width: 0 !important;
+
+			.rt-tr {
+				display: flex;
+				justify-content: center;
+				.rt-th {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					text-align: center;
+					border: $table-th-border;
+					padding: $table-rt-th-padding;
+					background-color: $table-rt-th-background-color;
+					color: $table-rt-th-color;
+					font-size: $table-title-rt-td-font-size;
+					cursor: pointer;
+				}
+			}
+		}
+
+		.rt-tbody {
+			min-width: 0 !important;
+			.rt-tr {
+				display: flex;
+				justify-content: center;
+
+				.rt-td {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					text-align: center;
+					border: $table-td-border;
+					padding: $table-rt-td-padding;
+					color: $table-rt-td-color;
+					font-size: $table-title-rt-td-font-size;
+				}
+			}
+		}
+	}
+
+	.pagination-bottom {
+		.-pagination {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-top: $pagination-margin-top;
+
+			.-pageInfo {
+				font-size: $pagination-page-info-font-size;
+				color: $pagination-page-info-color;
+			}
+
+			.-next {
+				font-size: $pagination-navigation-text-font-size;
+				button {
+					cursor: pointer;
+				}
+			}
+
+			.-previous {
+				font-size: $pagination-navigation-text-font-size;
+				button {
+					cursor: pointer;
+				}
+			}
+		}
+	}
+}
