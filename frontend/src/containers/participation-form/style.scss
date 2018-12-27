@@ -1,0 +1,13 @@
+.form-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+@media (min-width: $breaking-point-desktop) {
+	.form-container {
+		flex-direction: row;
+		align-items: flex-start;
+	}
+}

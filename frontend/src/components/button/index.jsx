@@ -8,13 +8,15 @@ export default class ButtonComponent extends Component {
 		const {
 			onClick,
 			text,
-			isFetching
+			isFetching,
+			type
 		} = this.props;
 
 		return (
 			<button
 				className={'button default'}
 				onClick={onClick}
+				type={type}
 			>
 				{
 					isFetching ? (

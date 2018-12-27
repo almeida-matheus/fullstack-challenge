@@ -1,9 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Component from './index.jsx';
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+import Teste from './teste.jsx';
+import { shallow } from 'enzyme';
 
-it('App container is rendering without crashes', () => {
-	const div = document.createElement('div');
-	ReactDOM.render(<Component />, div);
-	ReactDOM.unmountComponentAtNode(div);
+describe('AppContainer', () => {
+	it('renders correctly', () => {
+		const wrapper = shallow(<Teste />);
+		expect(wrapper).toMatchSnapshot();
+	});
 });

@@ -4,8 +4,36 @@ import React, {
 import * as NumericInput from "react-numeric-input";
 
 export default class InputNumberComponent extends Component {
-	onChange = (value) => {
-		this.props.onChange(value);
+	handleChange = (value) => {
+		const {
+			id,
+			onChange
+		} = this.props;
+
+		const event = {
+			target: {
+				value,
+				id
+			}
+		};
+
+		onChange(event);
+	}
+
+	handleBlur = (value) => {
+		const {
+			id,
+			onBlur
+		} = this.props;
+
+		const event = {
+			target: {
+				value,
+				id
+			}
+		};
+
+		onBlur(event);
 	}
 
 	render () {
@@ -14,7 +42,8 @@ export default class InputNumberComponent extends Component {
 			max,
 			value,
 			placeholder,
-			err
+			err,
+			id
 		} = this.props;
 
 		const inputClassName = `input-number ${err ? 'danger' : false}`;
@@ -22,14 +51,17 @@ export default class InputNumberComponent extends Component {
 		return (
 			<div className={'input-number-container'}>
 				<NumericInput
+					id={id}
+					name={id}
+					placeholder={placeholder}
+					value={value}
+					onChange={this.handleChange}
+					onBlur={this.handleBlur}
 					min={min}
 					max={max}
-					value={value}
-					placeholder={placeholder}
 					className={inputClassName}
 					strict
 					mobile
-					onChange={this.onChange}
 				/>
 			</div>
 		);
