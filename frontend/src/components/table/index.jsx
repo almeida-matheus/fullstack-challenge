@@ -7,18 +7,23 @@ export default class TableComponent extends Component {
 	render () {
 		const {
 			data,
-			columns
+			columns,
+			showPaginationBottom,
+			showPageSizeOptions,
+			defaultPageSize,
+			showPageJump,
+			loadingText
 		} = this.props;
 
 		return (
 			<ReactTable
 				data={data}
 				columns={columns}
-				showPaginationBottom
-				showPageSizeOptions={false}
-				defaultPageSize={4}
-				showPageJump={false}
-				loadingText=''
+				showPaginationBottom={showPaginationBottom}
+				showPageSizeOptions={showPageSizeOptions}
+				defaultPageSize={defaultPageSize}
+				showPageJump={showPageJump}
+				loadingText={loadingText}
 				className={'table'}
 			/>
 		);

@@ -2,12 +2,14 @@ import React, {
 	Component
 } from 'react';
 
-export default class teste extends Component {
+class Teste extends Component {
 	render () {
 		return (
 			<div>
-			TESTE
+				TESTEEE
 			</div>
-		);
+		)
 	}
 }
+
+export default Teste;

@@ -11,6 +11,33 @@ import ParticpationForm from '../participation-form';
 import * as participationActions from '../../actions/participation';
 
 class AppContainer extends Component {
+	constructor (props) {
+		super(props);
+		this.state = {
+			tableParams: {
+				showPaginationBottom: true,
+				showPageSizeOptions: false,
+				defaultPageSize: 4,
+				showPageJump: false,
+				loadingText: '',
+				columns: [
+					{
+						Header: 'First name',
+						accessor: 'firstName'
+					},
+					{
+						Header: 'Last name',
+						accessor: 'lastName'
+					},
+					{
+						Header: 'Participation',
+						accessor: 'participation'
+					}
+				]
+			}
+		}
+	}
+
 	componentDidMount () {
 		const {
 			participationActions
@@ -33,21 +60,6 @@ class AppContainer extends Component {
 			isFetchingGet,
 			isFetchingPost
 		} = data;
-
-		const columns = [
-			{
-				Header: 'First name',
-				accessor: 'firstName'
-			},
-			{
-				Header: 'Last name',
-				accessor: 'lastName'
-			},
-			{
-				Header: 'Participation',
-				accessor: 'participation'
-			}
-		];
 
 		chartData = result.map((model) => model.participation);
 		chartLabels = result.map((model) => `${model.firstName } ${model.lastName}`);
@@ -76,8 +88,8 @@ class AppContainer extends Component {
 							) :
 							(
 								<TableComponent
-									columns={columns}
 									data={result}
+									{...this.state.tableParams}
 								/>
 							)
 						}

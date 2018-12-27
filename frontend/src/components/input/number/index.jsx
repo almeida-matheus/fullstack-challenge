@@ -1,7 +1,8 @@
 import React, {
 	Component
 } from 'react';
-import * as NumericInput from "react-numeric-input";
+
+import NumericInput from "react-numeric-input";
 
 export default class InputNumberComponent extends Component {
 	handleChange = (value) => {
@@ -45,7 +46,6 @@ export default class InputNumberComponent extends Component {
 			err,
 			id
 		} = this.props;
-
 		const inputClassName = `input-number ${err ? 'danger' : false}`;
 
 		return (

@@ -11,13 +11,6 @@ import constants from '../../constants';
 import * as participationActions from '../../actions/participation';
 
 class ParticipationForm extends Component {
-
-
-
-	teste = () => {
-		console.log('custom submit');
-	}
-
 	render () {
 		const {
 			values,
@@ -129,7 +122,6 @@ const formikComponent = withFormik({
 	},
 	displayName: "ParticipationForm"
 })(ParticipationForm);
-
 
 const mapDispatchToProps = (dispatch) => {
 	return {
