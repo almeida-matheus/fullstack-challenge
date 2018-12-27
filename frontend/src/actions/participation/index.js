@@ -2,13 +2,11 @@ import participationConstants from '../../redux-constants/participation';
 import constants from '../../constants';
 import queryString from 'querystring';
 
-export function postParticipation (params) {
+export function requestPostParticipation (params) {
 	return dispatch => {
 		dispatch({
-			type: participationConstants.POST_PARTICIPATIONS
+			type: participationConstants.REQUEST_POST_PARTICIPATION
 		});
-		console.log("POST")
-		console.log(queryString.stringify(params))
 
 		return fetch(`${constants.API.ROOT}${constants.API.ACTIONS.PARTICIPATION}`, {
 			method: constants.API.METHODS.POST,
@@ -20,24 +18,30 @@ export function postParticipation (params) {
 		})
 		.then(response => response.json())
 		.then((json) => {
-			console.log("POST >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
-			console.log(json)
 			const { result } = json;
-			dispatch(setParticipations(result));
+
+			if (result) {
+				if (result.length > 0) {
+					dispatch(setParticipations(result));
+				}
+			}
+
+			dispatch({
+				type: participationConstants.STOP_POST_PARTICIPATION
+			});
 		})
 		.catch(() => {
-			// dispatch(globalNotificationActions.SendNotification(mainConstants.NOTIFICATIONS.TYPES.ERROR, mainConstants.NOTIFICATIONS.REQUEST_ERROR));
-			// dispatch({
-			// 	type: pageConstants.REQUEST_ERROR
-			// });
+			dispatch({
+				type: participationConstants.STOP_POST_PARTICIPATION
+			});
 		});
 	}
 }
 
-export function requestParticipations () {
+export function requestGetParticipations () {
 	return dispatch => {
 		dispatch({
-			type: participationConstants.REQUEST_PARTICIPATIONS
+			type: participationConstants.REQUEST_GET_PARTICIPATIONS
 		});
 
 		return fetch(`${constants.API.ROOT}${constants.API.ACTIONS.PARTICIPATION}`, {
@@ -49,13 +53,20 @@ export function requestParticipations () {
 		.then(response => response.json())
 		.then((json) => {
 			const { result } = json;
-			dispatch(setParticipations(result));
+
+			if (result) {
+				if (result.length > 0) {
+					dispatch(setParticipations(result));
+					dispatch({
+						type: participationConstants.STOP_GET_PARTICIPATIONS
+					});
+				}
+			}
 		})
 		.catch(() => {
-			// dispatch(globalNotificationActions.SendNotification(mainConstants.NOTIFICATIONS.TYPES.ERROR, mainConstants.NOTIFICATIONS.REQUEST_ERROR));
-			// dispatch({
-			// 	type: pageConstants.REQUEST_ERROR
-			// });
+			dispatch({
+				type: participationConstants.STOP_GET_PARTICIPATIONS
+			});
 		});
 	};
 }

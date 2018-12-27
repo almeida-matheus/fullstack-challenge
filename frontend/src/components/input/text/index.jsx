@@ -10,7 +10,8 @@ export default class InputTextComponent extends Component {
 	render () {
 		const {
 			err,
-			placeholder
+			placeholder,
+			value
 		} = this.props;
 
 		const inputClassName = `input-text ${err ? 'danger' : false}`;
@@ -21,6 +22,7 @@ export default class InputTextComponent extends Component {
 				type="text"
 				placeholder={placeholder}
 				onChange={this.onChange}
+				value={value}
 			/>
 		);
 	}

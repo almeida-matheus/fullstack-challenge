@@ -28,7 +28,7 @@ class AppContainer extends Component {
 			lastNameHasError: false
 		};
 
-		participationActions.requestParticipations();
+		participationActions.requestGetParticipations();
 	}
 
 	handleClickSend = () =>  {
@@ -39,7 +39,9 @@ class AppContainer extends Component {
 		const {
 			firstName,
 			lastName,
-			participation
+			participation,
+			firstNameHasError,
+			lastNameHasError
 		} = this.state;
 
 		const data = {
@@ -48,7 +50,19 @@ class AppContainer extends Component {
 			participation
 		}
 
-		participationActions.postParticipation(data);
+		this.validateForm('firstName', firstName);
+		this.validateForm('lastName', lastName);
+
+		if ((!firstNameHasError) && (!lastNameHasError)) {
+			participationActions.requestPostParticipation(data)
+				.then(() => {
+					this.setState({
+						participation: 1,
+						firstName: '',
+						lastName: ''
+					})
+				});
+		}
 	}
 
 	onTypeText = (fieldKey, fieldValue) => {
@@ -56,7 +70,6 @@ class AppContainer extends Component {
 		state[fieldKey] = fieldValue;
 
 		this.setState(state);
-
 		this.validateForm(fieldKey, fieldValue);
 	}
 
@@ -106,7 +119,9 @@ class AppContainer extends Component {
 		} = this.props;
 
 		const {
-			participation
+			participation,
+			lastName,
+			firstName
 		} = this.state;
 
 		const {
@@ -148,6 +163,7 @@ class AppContainer extends Component {
 						err={firstNameHasError}
 						onChange={(firstName) => this.onTypeText('firstName', firstName)}
 						label={constants.FORM_ERRORS.FIRST_NAME_LENGTH}
+						value={firstName}
 					/>
 					<InputComponent
 						type={"text"}
@@ -155,6 +171,7 @@ class AppContainer extends Component {
 						err={lastNameHasError}
 						onChange={(lastName) => this.onTypeText('lastName', lastName)}
 						label={constants.FORM_ERRORS.LAST_NAME_LENGTH}
+						value={lastName}
 					/>
 					<InputComponent
 						type={"number"}
