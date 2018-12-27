@@ -4,8 +4,8 @@ import React, {
 import * as NumericInput from "react-numeric-input";
 
 export default class InputNumberComponent extends Component {
-	onChange = (e) => {
-		this.props.onChange(e.target.value);
+	onChange = (value) => {
+		this.props.onChange(value);
 	}
 
 	render () {
@@ -29,6 +29,7 @@ export default class InputNumberComponent extends Component {
 					className={inputClassName}
 					strict
 					mobile
+					onChange={this.onChange}
 				/>
 			</div>
 		);

@@ -7,6 +7,7 @@ import ChartComponent from '../../components/chart';
 import TableComponent from '../../components/table';
 import ButtonComponent from '../../components/button';
 import InputComponent from '../../components/input';
+import SpinnerComponent from '../../components/spinner';
 import * as participationActions from '../../actions/participation';
 
 import constants from '../../constants';
@@ -22,7 +23,7 @@ class AppContainer extends Component {
 		this.state = {
 			firstName: '',
 			lastName: '',
-			participation: 0,
+			participation: 1,
 			firstNameHasError: false,
 			lastNameHasError: false
 		};
@@ -31,10 +32,23 @@ class AppContainer extends Component {
 	}
 
 	handleClickSend = () =>  {
-		this.setState({
-			firstNameHasError: true,
-			lastNameHasError: true
-		});
+		const {
+			participationActions
+		} = this.props;
+
+		const {
+			firstName,
+			lastName,
+			participation
+		} = this.state;
+
+		const data = {
+			firstName,
+			lastName,
+			participation
+		}
+
+		participationActions.postParticipation(data);
 	}
 
 	onTypeText = (fieldKey, fieldValue) => {
@@ -85,13 +99,20 @@ class AppContainer extends Component {
 	render () {
 		let chartData = [];
 		let chartLabels = [];
+		let chartColors = [];
 
 		const {
 			data
 		} = this.props;
 
 		const {
-			result
+			participation
+		} = this.state;
+
+		const {
+			result,
+			isFetchingGet,
+			isFetchingPost
 		} = data;
 
 		const columns = [
@@ -116,6 +137,7 @@ class AppContainer extends Component {
 
 		chartData = result.map((model) => model.participation);
 		chartLabels = result.map((model) => `${model.firstName } ${model.lastName}`);
+		chartColors = result.map((model) => model.color);
 
 		return (
 			<div className='app-container'>
@@ -125,14 +147,14 @@ class AppContainer extends Component {
 						placeholder="First name"
 						err={firstNameHasError}
 						onChange={(firstName) => this.onTypeText('firstName', firstName)}
-						label={constants.formErrors.firstNameLength}
+						label={constants.FORM_ERRORS.FIRST_NAME_LENGTH}
 					/>
 					<InputComponent
 						type={"text"}
 						placeholder="Last name"
 						err={lastNameHasError}
 						onChange={(lastName) => this.onTypeText('lastName', lastName)}
-						label={constants.formErrors.lastNameLength}
+						label={constants.FORM_ERRORS.LAST_NAME_LENGTH}
 					/>
 					<InputComponent
 						type={"number"}
@@ -141,12 +163,13 @@ class AppContainer extends Component {
 						onChange={(participation) => this.onTypeText('participation', participation)}
 						min={1}
 						max={100}
-						value={2}
+						value={participation}
 					/>
 					<ButtonComponent
 						text="Send"
 						onClick={this.handleClickSend}
 						onChange={(nameSignup) => this.setState({ nameSignup })}
+						isFetching={isFetchingPost}
 					/>
 				</Navbar>
 				<Section>
@@ -159,20 +182,40 @@ class AppContainer extends Component {
 					<div
 						className={'section-content'}
 					>
-						<TableComponent
-							columns={columns}
-							data={result}
-						/>
+						{
+							isFetchingGet ? (
+								<SpinnerComponent
+									type={'medium'}
+								/>
+							) :
+							(
+								<TableComponent
+									columns={columns}
+									data={result}
+								/>
+							)
+						}
 					</div>
 					<div
 						className={'section-content chart-container'}
 					>
-						<ChartComponent
-							width={320}
-							height={320}
-							data={chartData}
-							labels={chartLabels}
-						/>
+						{
+							isFetchingGet ? (
+								<SpinnerComponent
+									type={'medium'}
+								/>
+							) :
+							(
+								<ChartComponent
+									width={320}
+									height={320}
+									data={chartData}
+									labels={chartLabels}
+									colors={chartColors}
+								/>
+							)
+						}
+
 					</div>
 				</Section>
 			</div>

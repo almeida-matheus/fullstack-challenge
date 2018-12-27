@@ -1,4 +1,6 @@
 const uuidv1 = require('uuid/v1');
+const randomColor = require('../random-color');
+
 const setInitialParticipations = () => {
 	if (!(global.participations instanceof Array)) {
 		global.participations = [
@@ -6,13 +8,15 @@ const setInitialParticipations = () => {
 				id: uuidv1(),
 				firstName: 'Rodrigo',
 				lastName: 'Amarante',
-				participation: 5
+				participation: 5,
+				color: randomColor()
 			},
 			{
 				id: uuidv1(),
 				firstName: 'Rodrigo',
 				lastName: 'Amarante',
-				participation: 60
+				participation: 60,
+				color: randomColor()
 			}
 		];
 	}

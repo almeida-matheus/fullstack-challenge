@@ -12,19 +12,14 @@ export default class ChartComponent extends Component {
 			width,
 			height,
 			data,
-			labels
+			labels,
+			colors
 		} = this.props;
 
 		const chartData = {
 			datasets: [{
 				data: data,
-				backgroundColor: [
-					'#faa577',
-					'#f2c888',
-					'#c4dda9',
-					'#9bd2ad',
-					'#5da78f',
-				]
+				backgroundColor: colors
 			}],
 			labels: labels
 		};

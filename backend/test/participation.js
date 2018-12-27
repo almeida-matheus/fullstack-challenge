@@ -10,6 +10,8 @@ describe('PARTICIPATION \n', () => {
 				res.body.result.should.all.have.property('firstName');
 				res.body.result.should.all.have.property('lastName');
 				res.body.result.should.all.have.property('participation');
+				res.body.result.should.all.have.property('color');
+				res.body.result.should.all.have.property('id');
 
 				done();
 			});
@@ -33,6 +35,8 @@ describe('PARTICIPATION \n', () => {
 				res.body.result.should.all.have.property('firstName');
 				res.body.result.should.all.have.property('lastName');
 				res.body.result.should.all.have.property('participation');
+				res.body.result.should.all.have.property('color');
+				res.body.result.should.all.have.property('id');
 
 				done();
 			});

@@ -1,22 +1,29 @@
-import participationsConstants from '../../redux-constants/participation';
+import participationConstants from '../../redux-constants/participation';
 
 const initialState = {
-	isFetching: false,
+	isFetchingGet: false,
+	isFetchingPost: false,
 	didInvalidate: false,
 	result: []
 };
 
 function participationReducer (state = initialState, action) {
 	switch (action.type) {
-		case participationsConstants.REQUEST_PARTICIPATIONS:
+		case participationConstants.REQUEST_PARTICIPATIONS:
 			return Object.assign({}, state, {
-				isFetching: true,
+				isFetchingGet: true,
 				didInvalidate: false
 			});
 
-		case participationsConstants.SET_PARTICIPATIONS:
+		case participationConstants.POST_PARTICIPATIONS:
 			return Object.assign({}, state, {
-				isFetching: false,
+				isFetchingPost: true,
+				didInvalidate: false
+			});
+
+		case participationConstants.SET_PARTICIPATIONS:
+			return Object.assign({}, state, {
+				isFetchingGet: false,
 				didInvalidate: false,
 				result: action.result
 			});
