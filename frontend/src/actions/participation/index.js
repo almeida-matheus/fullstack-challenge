@@ -29,11 +29,15 @@ export function requestPostParticipation (params) {
 			dispatch({
 				type: participationConstants.STOP_POST_PARTICIPATION
 			});
+
+			return json;
 		})
-		.catch(() => {
+		.catch((result) => {
 			dispatch({
 				type: participationConstants.STOP_POST_PARTICIPATION
 			});
+
+			return result;
 		});
 	}
 }
@@ -62,11 +66,14 @@ export function requestGetParticipations () {
 					});
 				}
 			}
+			return json;
 		})
-		.catch(() => {
+		.catch((result) => {
 			dispatch({
 				type: participationConstants.STOP_GET_PARTICIPATIONS
 			});
+
+			return result;
 		});
 	};
 }
