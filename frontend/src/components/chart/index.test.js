@@ -1,7 +1,7 @@
 import React from 'react';
-import Chart from './index.jsx';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
+import Chart from './index.jsx';
 
 describe('<Chart />', () => {
 	const modelI = {

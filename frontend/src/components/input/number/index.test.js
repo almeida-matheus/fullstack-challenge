@@ -1,8 +1,8 @@
 import React from 'react';
-import Number from './index.jsx';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import sinon from 'sinon';
+import Number from './index.jsx';
 
 describe('<Number />', () => {
 	const onChange = sinon.spy();
@@ -15,8 +15,8 @@ describe('<Number />', () => {
 		placeholder: 'Participation',
 		err: false,
 		id: 'participation',
-		onChange: onChange,
-		onBlur: onBlur
+		onChange,
+		onBlur
 	};
 
 	const getWrapper = (model) => {

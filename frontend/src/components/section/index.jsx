@@ -6,7 +6,7 @@ class SectionComponent extends Component {
 		} = this.props;
 
 		return (
-			<section className={'section -striped -highlight'}>
+			<section className='section -striped -highlight'>
 				{
 					children
 				}

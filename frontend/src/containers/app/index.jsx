@@ -35,7 +35,7 @@ class AppContainer extends Component {
 					}
 				]
 			}
-		}
+		};
 	}
 
 	componentDidMount () {
@@ -61,8 +61,12 @@ class AppContainer extends Component {
 			isFetchingPost
 		} = data;
 
+		const {
+			tableParams
+		} = this.state;
+
 		chartData = result.map((model) => model.participation);
-		chartLabels = result.map((model) => `${model.firstName } ${model.lastName}`);
+		chartLabels = result.map((model) => `${model.firstName} ${model.lastName}`);
 		chartColors = result.map((model) => model.color);
 
 		return (
@@ -72,46 +76,46 @@ class AppContainer extends Component {
 				</Navbar>
 				<Section>
 					<div>
-						<h1 className={'title'}> DATA </h1>
-						<p className={'desc'}> Lorem ipsum dolor sit amet consectetur adipiscing elit </p>
+						<h1 className='title'> DATA </h1>
+						<p className='desc'> Lorem ipsum dolor sit amet consectetur adipiscing elit </p>
 					</div>
 				</Section>
 				<Section>
 					<div
-						className={'section-content'}
+						className='section-content'
 					>
 						{
 							isFetchingGet ? (
 								<SpinnerComponent
-									type={'medium'}
-								/>
-							) :
-							(
-								<TableComponent
-									data={result}
-									{...this.state.tableParams}
+									type='medium'
 								/>
 							)
+								: (
+									<TableComponent
+										data={result}
+										{...tableParams}
+									/>
+								)
 						}
 					</div>
 					<div
-						className={'section-content chart-container'}
+						className='section-content chart-container'
 					>
 						{
 							isFetchingGet ? (
 								<SpinnerComponent
-									type={'medium'}
-								/>
-							) :
-							(
-								<ChartComponent
-									width={320}
-									height={320}
-									data={chartData}
-									labels={chartLabels}
-									colors={chartColors}
+									type='medium'
 								/>
 							)
+								:	(
+									<ChartComponent
+										width={320}
+										height={320}
+										data={chartData}
+										labels={chartLabels}
+										colors={chartColors}
+									/>
+								)
 						}
 
 					</div>
@@ -131,6 +135,6 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		participationActions: bindActionCreators(participationActions, dispatch)
 	};
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);

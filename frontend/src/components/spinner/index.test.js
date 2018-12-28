@@ -1,7 +1,7 @@
 import React from 'react';
-import Spinner from './index.jsx';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
+import Spinner from './index.jsx';
 
 describe('<Spinner />', () => {
 	const modelI = {

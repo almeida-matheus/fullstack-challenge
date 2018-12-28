@@ -1,8 +1,8 @@
 import React from 'react';
-import Button from './index.jsx';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import sinon from 'sinon';
+import Button from './index.jsx';
 
 describe('<Button />', () => {
 	const onButtonClick = sinon.spy();

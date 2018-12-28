@@ -1,6 +1,6 @@
+import queryString from 'querystring';
 import participationConstants from '../../redux-constants/participation';
 import constants from '../../constants';
-import queryString from 'querystring';
 
 export function requestPostParticipation (params) {
 	return dispatch => {
@@ -16,30 +16,30 @@ export function requestPostParticipation (params) {
 			},
 			body: queryString.stringify(params)
 		})
-		.then(response => response.json())
-		.then((json) => {
-			const { result } = json;
+			.then(response => response.json())
+			.then((json) => {
+				const { result } = json;
 
-			if (result) {
-				if (result.length > 0) {
-					dispatch(setParticipations(result));
+				if (result) {
+					if (result.length > 0) {
+						dispatch(setParticipations(result));
+					}
 				}
-			}
 
-			dispatch({
-				type: participationConstants.STOP_POST_PARTICIPATION
+				dispatch({
+					type: participationConstants.STOP_POST_PARTICIPATION
+				});
+
+				return json;
+			})
+			.catch((result) => {
+				dispatch({
+					type: participationConstants.STOP_POST_PARTICIPATION
+				});
+
+				return result;
 			});
-
-			return json;
-		})
-		.catch((result) => {
-			dispatch({
-				type: participationConstants.STOP_POST_PARTICIPATION
-			});
-
-			return result;
-		});
-	}
+	};
 }
 
 export function requestGetParticipations () {
@@ -54,27 +54,27 @@ export function requestGetParticipations () {
 				// 'token': JSON.stringify(getCookie('token')
 			}
 		})
-		.then(response => response.json())
-		.then((json) => {
-			const { result } = json;
+			.then(response => response.json())
+			.then((json) => {
+				const { result } = json;
 
-			if (result) {
-				if (result.length > 0) {
-					dispatch(setParticipations(result));
-					dispatch({
-						type: participationConstants.STOP_GET_PARTICIPATIONS
-					});
+				if (result) {
+					if (result.length > 0) {
+						dispatch(setParticipations(result));
+						dispatch({
+							type: participationConstants.STOP_GET_PARTICIPATIONS
+						});
+					}
 				}
-			}
-			return json;
-		})
-		.catch((result) => {
-			dispatch({
-				type: participationConstants.STOP_GET_PARTICIPATIONS
-			});
+				return json;
+			})
+			.catch((result) => {
+				dispatch({
+					type: participationConstants.STOP_GET_PARTICIPATIONS
+				});
 
-			return result;
-		});
+				return result;
+			});
 	};
 }
 

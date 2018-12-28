@@ -14,14 +14,14 @@ export default class ButtonComponent extends Component {
 
 		return (
 			<button
-				className={'button default'}
+				className='button default'
 				onClick={onClick}
 				type={type}
 			>
 				{
 					isFetching ? (
 						<SpinnerComponent
-							type={'small'}
+							type='small'
 						/>
 					) : (
 						text.toUpperCase()

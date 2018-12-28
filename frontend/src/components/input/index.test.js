@@ -1,8 +1,8 @@
 import React from 'react';
-import Input from './index.jsx';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import sinon from 'sinon';
+import Input from './index.jsx';
 
 describe('<Input />', () => {
 	const onChange = sinon.spy();
@@ -13,8 +13,8 @@ describe('<Input />', () => {
 		placeholder: 'Last name',
 		type: 'text',
 		value: 'value',
-		onChange: onChange,
-		onBlur: onBlur,
+		onChange,
+		onBlur,
 		err: true,
 		label: 'erro teste'
 	};
@@ -24,8 +24,8 @@ describe('<Input />', () => {
 		placeholder: 'Participation',
 		type: 'number',
 		value: 'value',
-		onChange: onChange,
-		onBlur: onBlur,
+		onChange,
+		onBlur,
 		err: false,
 		min: 1,
 		max: 100

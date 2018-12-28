@@ -10,7 +10,8 @@ class InputComponent extends Component {
 		const {
 			type,
 			err,
-			label
+			label,
+			id
 		} = this.props;
 
 		let inputComponent = null;
@@ -28,13 +29,16 @@ class InputComponent extends Component {
 		}
 
 		return (
-			<div className={'input-form-container'}>
+			<div className='input-form-container'>
 				{
 					inputComponent
 				}
 				{
 					err ? (
-						<label className={'error-label'}>
+						<label
+							className='error-label'
+							htmlFor={id}
+						>
 							{
 								label
 							}
@@ -42,7 +46,7 @@ class InputComponent extends Component {
 					) : null
 				}
 			</div>
-		)
+		);
 	}
 }
 

@@ -24,7 +24,7 @@ export default class TableComponent extends Component {
 				defaultPageSize={defaultPageSize}
 				showPageJump={showPageJump}
 				loadingText={loadingText}
-				className={'table'}
+				className='table'
 			/>
 		);
 	}

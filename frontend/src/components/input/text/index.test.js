@@ -1,8 +1,8 @@
 import React from 'react';
-import Text from './index.jsx';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import sinon from 'sinon';
+import Text from './index.jsx';
 
 describe('<Text />', () => {
 	const onChange = sinon.spy();
@@ -13,8 +13,8 @@ describe('<Text />', () => {
 		placeholder: 'Last name',
 		value: 'value',
 		id: 'lastName',
-		onChange: onChange,
-		onBlur: onBlur
+		onChange,
+		onBlur
 	};
 
 	const getWrapper = (model) => {

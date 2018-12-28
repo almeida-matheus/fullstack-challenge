@@ -1,7 +1,7 @@
 import React, {
 	Component
-} from "react";
-import { withFormik } from "formik";
+} from 'react';
+import { withFormik } from 'formik';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -26,13 +26,13 @@ class ParticipationForm extends Component {
 		return (
 			<form
 				onSubmit={handleSubmit}
-				className={"form-container"}
+				className='form-container'
 			>
 
 				<InputComponent
-					id="firstName"
-					placeholder="First name"
-					type={"text"}
+					id='firstName'
+					placeholder='First name'
+					type='text'
 					value={values.firstName}
 					onChange={handleChange}
 					onBlur={handleBlur}
@@ -41,9 +41,9 @@ class ParticipationForm extends Component {
 				/>
 
 				<InputComponent
-					id="lastName"
-					placeholder="Last name"
-					type={"text"}
+					id='lastName'
+					placeholder='Last name'
+					type='text'
 					value={values.lastName}
 					onChange={handleChange}
 					onBlur={handleBlur}
@@ -52,9 +52,9 @@ class ParticipationForm extends Component {
 				/>
 
 				<InputComponent
-					id="participation"
-					placeholder="Participation"
-					type={"number"}
+					id='participation'
+					placeholder='Participation'
+					type='number'
 					value={values.participation}
 					onChange={handleChange}
 					onBlur={handleBlur}
@@ -81,7 +81,7 @@ const formikComponent = withFormik({
 		participation: 1
 	}),
 	validate: values => {
-		let errors = {};
+		const errors = {};
 
 		if (!values.firstName) {
 			errors.firstName = constants.FORM_ERRORS.REQUIRED;
@@ -112,7 +112,7 @@ const formikComponent = withFormik({
 			firstName,
 			lastName,
 			participation
-		}
+		};
 
 		participationActions.requestPostParticipation(data)
 			.then(() => {
@@ -120,13 +120,13 @@ const formikComponent = withFormik({
 			});
 		setSubmitting(false);
 	},
-	displayName: "ParticipationForm"
+	displayName: 'ParticipationForm'
 })(ParticipationForm);
 
 const mapDispatchToProps = (dispatch) => {
 	return {
 		participationActions: bindActionCreators(participationActions, dispatch)
 	};
-}
+};
 
 export default connect(null, mapDispatchToProps)(formikComponent);

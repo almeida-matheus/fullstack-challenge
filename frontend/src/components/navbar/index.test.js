@@ -1,7 +1,7 @@
 import React from 'react';
-import Navbar from './index.jsx';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
+import Navbar from './index.jsx';
 
 describe('<Navbar />', () => {
 	const getWrapper = (child) => {
@@ -16,9 +16,7 @@ describe('<Navbar />', () => {
 
 	it('renders correctly', () => {
 		const wrapper = getWrapper((
-			<div>
-				teste
-			</div>
+			<div> teste </div>
 		));
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});

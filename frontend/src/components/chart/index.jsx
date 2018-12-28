@@ -18,10 +18,10 @@ export default class ChartComponent extends Component {
 
 		const chartData = {
 			datasets: [{
-				data: data,
+				data,
 				backgroundColor: colors
 			}],
-			labels: labels
+			labels
 		};
 
 		const options = {
@@ -37,8 +37,8 @@ export default class ChartComponent extends Component {
 			tooltips: {
 				callbacks: {
 					label: (tooltipItem, data) => {
-						var amount = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-						return amount + "%";
+						const amount = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+						return `${amount}%`;
 					}
 				}
 			}

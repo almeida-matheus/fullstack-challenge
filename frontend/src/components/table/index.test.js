@@ -1,7 +1,7 @@
 import React from 'react';
-import Table from './index.jsx';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
+import Table from './index.jsx';
 
 describe('<Table />', () => {
 	const modelI = {
@@ -26,14 +26,14 @@ describe('<Table />', () => {
 		],
 		data: [
 			{
-				firstName: "TesteI name",
-				lastName: "TesteI lastName",
-				participation: "50"
+				firstName: 'TesteI name',
+				lastName: 'TesteI lastName',
+				participation: '50'
 			},
 			{
-				firstName: "TesteII name",
-				lastName: "TesteII lastName",
-				participation: "50"
+				firstName: 'TesteII name',
+				lastName: 'TesteII lastName',
+				participation: '50'
 			}
 		]
 	};

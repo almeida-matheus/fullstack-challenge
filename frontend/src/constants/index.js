@@ -15,6 +15,6 @@ const constants = {
 			POST: 'POST'
 		}
 	}
-}
+};
 
 export default constants;

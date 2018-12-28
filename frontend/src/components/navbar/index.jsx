@@ -7,7 +7,7 @@ class NavbarComponent extends Component {
 		} = this.props;
 
 		return (
-			<nav className={'navbar'}>
+			<nav className='navbar'>
 				{
 					children
 				}
