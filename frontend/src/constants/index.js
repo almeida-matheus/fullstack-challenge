@@ -14,6 +14,9 @@ const constants = {
 			GET: 'GET',
 			POST: 'POST'
 		}
+	},
+	API_ERRORS: {
+		CATCH_ON_REQUEST: 'Ohh, we have a problem :( please check your internet connection and try again'
 	}
 };
 

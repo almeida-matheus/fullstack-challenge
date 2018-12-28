@@ -4,6 +4,7 @@ import React, {
 import { withFormik } from 'formik';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { toast } from 'react-toastify';
 
 import ButtonComponent from '../../components/button';
 import InputComponent from '../../components/input';
@@ -115,9 +116,24 @@ const formikComponent = withFormik({
 		};
 
 		participationActions.requestPostParticipation(data)
-			.then(() => {
-				resetForm();
+			.then((result) => {
+				const {
+					success,
+					errors
+				} = result;
+
+				if (success) {
+					resetForm();
+				} else {
+					errors.forEach((error) => {
+						toast.error(`${error.param.toUpperCase()}: ${error.msg}`);
+					});
+				}
+			})
+			.catch(() => {
+				toast.error(constants.API_ERRORS.CATCH_ON_REQUEST);
 			});
+
 		setSubmitting(false);
 	},
 	displayName: 'ParticipationForm'

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { toast } from 'react-toastify';
 import Section from '../../components/section';
 import Navbar from '../../components/navbar';
 import ChartComponent from '../../components/chart';
@@ -8,6 +9,7 @@ import TableComponent from '../../components/table';
 import SpinnerComponent from '../../components/spinner';
 import ParticpationForm from '../participation-form';
 import * as participationActions from '../../actions/participation';
+import constants from '../../constants';
 
 class HomeContainer extends Component {
 	constructor (props) {
@@ -42,7 +44,11 @@ class HomeContainer extends Component {
 			participationActions
 		} = this.props;
 
-		participationActions.requestGetParticipations();
+		participationActions
+			.requestGetParticipations()
+			.catch(() => {
+				toast.error(constants.API_ERRORS.CATCH_ON_REQUEST);
+			});
 	}
 
 	render () {
