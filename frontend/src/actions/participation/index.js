@@ -61,11 +61,13 @@ export function requestGetParticipations () {
 				if (result) {
 					if (result.length > 0) {
 						dispatch(setParticipations(result));
-						dispatch({
-							type: participationConstants.STOP_GET_PARTICIPATIONS
-						});
 					}
 				}
+
+				dispatch({
+					type: participationConstants.STOP_GET_PARTICIPATIONS
+				});
+
 				return json;
 			})
 			.catch((result) => {

@@ -85,23 +85,28 @@ const formikComponent = withFormik({
 		const errors = {};
 
 		if (!values.firstName) {
-			errors.firstName = constants.FORM_ERRORS.REQUIRED;
+			errors.firstName = constants.MESSAGES.REQUIRED;
 		} else if (values.firstName.length < 2 || values.firstName.length > 20) {
-			errors.firstName = constants.FORM_ERRORS.FIRST_NAME_LENGTH;
+			errors.firstName = constants.MESSAGES.FIRST_NAME_LENGTH;
 		}
 
 		if (!values.lastName) {
-			errors.lastName = constants.FORM_ERRORS.REQUIRED;
+			errors.lastName = constants.MESSAGES.REQUIRED;
 		} else if (values.lastName.length < 2 || values.lastName.length > 20) {
-			errors.lastName = constants.FORM_ERRORS.LAST_NAME_LENGTH;
+			errors.lastName = constants.MESSAGES.LAST_NAME_LENGTH;
 		}
 
 		return errors;
 	},
 	handleSubmit: (values, { props, setSubmitting, resetForm }) => {
 		const {
-			participationActions
+			participationActions,
+			data
 		} = props;
+
+		const {
+			isFetchingPost
+		} = data;
 
 		const {
 			firstName,
@@ -109,35 +114,43 @@ const formikComponent = withFormik({
 			participation
 		} = values;
 
-		const data = {
+		const body = {
 			firstName,
 			lastName,
 			participation
 		};
 
-		participationActions.requestPostParticipation(data)
-			.then((result) => {
-				const {
-					success,
-					errors
-				} = result;
+		if (!isFetchingPost) {
+			participationActions.requestPostParticipation(body)
+				.then((result) => {
+					const {
+						success,
+						errors
+					} = result;
 
-				if (success) {
-					resetForm();
-				} else {
-					errors.forEach((error) => {
-						toast.error(`${error.param.toUpperCase()}: ${error.msg}`);
-					});
-				}
-			})
-			.catch(() => {
-				toast.error(constants.API_ERRORS.CATCH_ON_REQUEST);
-			});
+					if (success) {
+						resetForm();
+					} else {
+						errors.forEach((error) => {
+							toast.error(`${error.param.toUpperCase()}: ${error.msg}`);
+						});
+					}
+				})
+				.catch(() => {
+					toast.error(constants.MESSAGES.CATCH_ON_REQUEST);
+				});
+		}
 
 		setSubmitting(false);
 	},
 	displayName: 'ParticipationForm'
 })(ParticipationForm);
+
+const mapStateToProps = (state) => {
+	return {
+		data: state.participations,
+	};
+};
 
 const mapDispatchToProps = (dispatch) => {
 	return {
@@ -145,4 +158,4 @@ const mapDispatchToProps = (dispatch) => {
 	};
 };
 
-export default connect(null, mapDispatchToProps)(formikComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(formikComponent);

@@ -47,7 +47,7 @@ class HomeContainer extends Component {
 		participationActions
 			.requestGetParticipations()
 			.catch(() => {
-				toast.error(constants.API_ERRORS.CATCH_ON_REQUEST);
+				toast.error(constants.MESSAGES.CATCH_ON_REQUEST);
 			});
 	}
 

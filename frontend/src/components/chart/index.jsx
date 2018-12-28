@@ -5,6 +5,7 @@ import React, {
 import {
 	Doughnut
 } from 'react-chartjs-2';
+import constants from '../../constants';
 
 export default class ChartComponent extends Component {
 	render () {
@@ -39,43 +40,52 @@ export default class ChartComponent extends Component {
 				}
 			}
 		};
+		if (data.length > 0) {
+			return (
+				<div className='chart-container-r'>
+					<Doughnut
+						data={chartData}
+						options={options}
+						width={width}
+						height={height}
+					/>
+					<div
+						className='legend-container'
+					>
+						{
+							labels.map((item, i) => {
+								return (
+									<div
+										className='legend'
+										key={i}
+									>
+										<span
+											className='tag'
+											style={{
+												backgroundColor: colors[i]
+											}}
+										/>
+										<span
+											className='desc'
+										>
+											{
+												item
+											}
+										</span>
+									</div>
+								);
+							})
+						}
+					</div>
+				</div>
+			);
+		}
 
 		return (
-			<div className='chart-container-r'>
-				<Doughnut
-					data={chartData}
-					options={options}
-					width={width}
-					height={height}
-				/>
-				<div
-					className='legend-container'
-				>
-					{
-						labels.map((item, i) => {
-							return (
-								<div
-									className='legend'
-									key={i}
-								>
-									<span
-										className='tag'
-										style={{
-											backgroundColor: colors[i]
-										}}
-									/>
-									<span
-										className='desc'
-									>
-										{
-											item
-										}
-									</span>
-								</div>
-							);
-						})
-					}
-				</div>
+			<div className="label error">
+				{
+					constants.MESSAGES.IS_EMPTY
+				}
 			</div>
 		);
 	}

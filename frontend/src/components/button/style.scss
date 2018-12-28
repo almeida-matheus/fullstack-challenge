@@ -7,10 +7,17 @@
 	border-radius: 4px;
 	margin: 10px;
 	cursor: pointer;
-}
+	transition: all 0.5s ease;
 
-.default {
-	border: 1.5px solid $brand-default;
-	color: $brand-default;
-	font-weight: 700;
+	&.default {
+		background-color: none;
+		border: 1.5px solid $brand-default;
+		color: $brand-default;
+		font-weight: 700;
+
+		&:hover, &:active {
+			background-color: $brand-default;
+			color: $brand-info;
+		}
+	}
 }

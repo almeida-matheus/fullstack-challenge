@@ -5,34 +5,22 @@ const setInitialParticipations = () => {
 	if (!(global.participations instanceof Array)) {
 		global.participations = [];
 
-		for (let i = 0; i < 100; i++) {
-			global.participations.push(
-				{
-					id: uuidv1(),
-					firstName: 'Rodrigoooouououououo',
-					lastName: 'Amaranteasdaswdsqdwa',
-					participation: 1,
-					color: randomColor()
-				}
-			);
-		}
-
-		// global.participations = [
-		// 	{
-		// 		id: uuidv1(),
-		// 		firstName: 'Rodrigo',
-		// 		lastName: 'Amarante',
-		// 		participation: 5,
-		// 		color: randomColor()
-		// 	},
-		// 	{
-		// 		id: uuidv1(),
-		// 		firstName: 'Rodrigo',
-		// 		lastName: 'Amarante',
-		// 		participation: 60,
-		// 		color: randomColor()
-		// 	}
-		// ];
+		global.participations = [
+			{
+				id: uuidv1(),
+				firstName: 'José',
+				lastName: 'Silva',
+				participation: 5,
+				color: randomColor()
+			},
+			{
+				id: uuidv1(),
+				firstName: 'João',
+				lastName: 'Souza',
+				participation: 5,
+				color: randomColor()
+			}
+		];
 	}
 };
 
