@@ -6,7 +6,7 @@ const constants = {
 		REQUIRED: 'A value is required'
 	},
 	API: {
-		ROOT: 'http://localhost:7070',
+		ROOT: 'http://192.168.0.101:7070',
 		ACTIONS: {
 			PARTICIPATION: '/participation'
 		},

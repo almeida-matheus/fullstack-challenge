@@ -27,30 +27,56 @@ export default class ChartComponent extends Component {
 		const options = {
 			responsive: false,
 			legend: {
-				position: 'bottom',
-				labels: {
-					fontColor: '#737980',
-					boxWidth: 20,
-					padding: 20
-				}
+				display: false
 			},
 			tooltips: {
 				callbacks: {
 					label: (tooltipItem, data) => {
-						const amount = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-						return `${amount}%`;
+						const tooltipData = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+						const tooltipLabel = data.labels[tooltipItem.datasetIndex];
+						return `${tooltipLabel} - ${tooltipData}%`;
 					}
 				}
 			}
 		};
 
 		return (
-			<Doughnut
-				data={chartData}
-				options={options}
-				width={width}
-				height={height}
-			/>
+			<div className='chart-container-r'>
+				<Doughnut
+					data={chartData}
+					options={options}
+					width={width}
+					height={height}
+				/>
+				<div
+					className='legend-container'
+				>
+					{
+						labels.map((item, i) => {
+							return (
+								<div
+									className='legend'
+									key={i}
+								>
+									<span
+										className='tag'
+										style={{
+											backgroundColor: colors[i]
+										}}
+									/>
+									<span
+										className='desc'
+									>
+										{
+											item
+										}
+									</span>
+								</div>
+							);
+						})
+					}
+				</div>
+			</div>
 		);
 	}
 }

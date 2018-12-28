@@ -1,0 +1,37 @@
+.chart-container-r {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	
+
+	.legend-container {
+		display: flex;
+		flex-flow: row wrap;
+		align-content: center;
+		justify-content: center;
+		margin-top: 80px;
+		height: 200px;
+		overflow-x: auto;
+
+		.legend {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+			margin: 10px;
+
+			.tag {
+				display: block;
+				width: 40px;
+				height: 20px;
+			}
+
+			.desc {
+				display: block;
+				color: $brand-text-dark;
+				margin-left: 8px;
+			}
+		}
+	}
+}

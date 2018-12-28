@@ -75,7 +75,7 @@ class AppContainer extends Component {
 					<ParticpationForm isFetchingPost={isFetchingPost} />
 				</Navbar>
 				<Section>
-					<div>
+					<div className='section-desc-container'>
 						<h1 className='title'> DATA </h1>
 						<p className='desc'> Lorem ipsum dolor sit amet consectetur adipiscing elit </p>
 					</div>

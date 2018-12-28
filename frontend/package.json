@@ -4,6 +4,8 @@
 	"private": true,
 	"dependencies": {
 		"chart.js": "^2.7.3",
+		"echarts": "^4.2.0-rc.2",
+		"echarts-for-react": "^2.0.15-beta.0",
 		"enzyme-adapter-react-16": "^1.7.1",
 		"formik": "^1.4.1",
 		"querystring": "^0.2.0",
