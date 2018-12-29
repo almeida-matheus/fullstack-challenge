@@ -7,5 +7,6 @@ const route = Router();
 
 route.get('/participation', participationController.getParticipations);
 route.post('/participation', validators.participationValidator(), participationController.postParticipation);
+route.delete('/participation', participationController.deleteParticipation);
 
 module.exports = route;

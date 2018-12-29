@@ -39,3 +39,13 @@ exports.postParticipation = (req, res) => {
 		this.getParticipations(req, res);
 	}
 };
+
+exports.deleteParticipation = (req, res) => {
+	const {
+		id
+	} = req.body;
+
+	participationRepository.deleteParticipation(id);
+
+	this.getParticipations(req, res);
+};

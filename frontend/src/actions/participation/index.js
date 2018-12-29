@@ -21,9 +21,7 @@ export function requestPostParticipation (params) {
 				const { result } = json;
 
 				if (result) {
-					if (result.length > 0) {
-						dispatch(setParticipations(result));
-					}
+					dispatch(setParticipations(result));
 				}
 
 				dispatch({
@@ -35,6 +33,47 @@ export function requestPostParticipation (params) {
 			.catch((result) => {
 				dispatch({
 					type: participationConstants.STOP_POST_PARTICIPATION
+				});
+
+				return result;
+			});
+	};
+}
+export function requestDeleteParticipation (id) {
+	return dispatch => {
+		const params = {
+			id
+		};
+
+		dispatch({
+			type: participationConstants.REQUEST_DELETE_PARTICIPATION
+		});
+
+		return fetch(`${constants.API.ROOT}${constants.API.ACTIONS.PARTICIPATION}`, {
+			method: constants.API.METHODS.DELETE,
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded'
+				// 'token': JSON.stringify(getCookie('token')
+			},
+			body: queryString.stringify(params)
+		})
+			.then(response => response.json())
+			.then((json) => {
+				const { result } = json;
+
+				if (result) {
+					dispatch(setParticipations(result));
+				}
+
+				dispatch({
+					type: participationConstants.STOP_DELETE_PARTICIPATION
+				});
+
+				return json;
+			})
+			.catch((result) => {
+				dispatch({
+					type: participationConstants.STOP_DELETE_PARTICIPATION
 				});
 
 				return result;
@@ -59,9 +98,7 @@ export function requestGetParticipations () {
 				const { result } = json;
 
 				if (result) {
-					if (result.length > 0) {
-						dispatch(setParticipations(result));
-					}
+					dispatch(setParticipations(result));
 				}
 
 				dispatch({

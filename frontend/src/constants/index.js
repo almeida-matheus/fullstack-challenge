@@ -1,7 +1,7 @@
 const constants = {
 	MESSAGES: {
-		FIRST_NAME_LENGTH: 'The First name must be between 2 and 20 characters',
-		LAST_NAME_LENGTH: 'The Last name must be between 2 and 20 characters',
+		FIRST_NAME_LENGTH: 'The First name must be between 2 and 15 characters',
+		LAST_NAME_LENGTH: 'The Last name must be between 2 and 15 characters',
 		PARTICIPATION_LENGTH: 'Participation must be between 1 and 100',
 		REQUIRED: 'A value is required',
 		CATCH_ON_REQUEST: 'Ohh, we have a problem :( please check your internet connection and try again',
@@ -14,8 +14,13 @@ const constants = {
 		},
 		METHODS: {
 			GET: 'GET',
-			POST: 'POST'
+			POST: 'POST',
+			DELETE: 'DELETE'
 		}
+	},
+	HOME: {
+		TITLE: 'Employees',
+		SUBTITLE: 'Employees involvement and participation at work'
 	}
 };
 

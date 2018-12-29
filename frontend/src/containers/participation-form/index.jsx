@@ -66,6 +66,7 @@ class ParticipationForm extends Component {
 
 				<ButtonComponent
 					type="submit"
+					cssType="default"
 					text="Send"
 					isFetching={isFetchingPost}
 					disabled={isSubmitting}
@@ -86,13 +87,13 @@ const formikComponent = withFormik({
 
 		if (!values.firstName) {
 			errors.firstName = constants.MESSAGES.REQUIRED;
-		} else if (values.firstName.length < 2 || values.firstName.length > 20) {
+		} else if (values.firstName.length < 2 || values.firstName.length > 15) {
 			errors.firstName = constants.MESSAGES.FIRST_NAME_LENGTH;
 		}
 
 		if (!values.lastName) {
 			errors.lastName = constants.MESSAGES.REQUIRED;
-		} else if (values.lastName.length < 2 || values.lastName.length > 20) {
+		} else if (values.lastName.length < 2 || values.lastName.length > 15) {
 			errors.lastName = constants.MESSAGES.LAST_NAME_LENGTH;
 		}
 

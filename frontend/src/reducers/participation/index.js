@@ -27,6 +27,16 @@ function participationReducer (state = initialState, action) {
 				didInvalidate: false
 			});
 
+		case participationConstants.REQUEST_DELETE_PARTICIPATION:
+			return Object.assign({}, state, {
+				didInvalidate: false
+			});
+
+		case participationConstants.STOP_DELETE_PARTICIPATION:
+			return Object.assign({}, state, {
+				didInvalidate: false
+			});
+
 		case participationConstants.SET_PARTICIPATIONS:
 			return Object.assign({}, state, {
 				didInvalidate: false,

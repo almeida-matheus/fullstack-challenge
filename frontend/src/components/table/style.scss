@@ -1,95 +1,79 @@
-.table {
+.paginator-container {
 	display: flex;
-	flex-direction: column;
-	width: 100%;
-
-	.rt-table {
-		width: 100%;
-
-		.rt-thead {
-			min-width: 0 !important;
-
-			.rt-tr {
-				word-break: break-all;
-				display: flex;
-				justify-content: center;
-				.rt-th {
-					display: flex;
-					align-items: center;
-					justify-content: center;
-					text-align: center;
-					border: 2px $brand-default solid;
-					padding: 20px;
-					background-color: $brand-info;
-					color: $brand-default;
-					font-size: 18px;
-					cursor: pointer;
-					transition: all .5s ease;
-
-					&:hover, active {
-						background-color: $brand-info-dark;
-					}
-				}
-			}
-		}
-
-		.rt-tbody {
-			min-width: 0 !important;
-			.rt-tr {
-				display: flex;
-				justify-content: center;
-
-				.rt-td {
-					word-break: break-all;
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					text-align: center;
-					border: 2px $brand-default solid;
-					padding: 20px;
-					color: $brand-text-dark;
-					font-size: 18px;
-					transition: all .5s ease;
-
-					&:hover, &:active {
-						background-color: $brand-text-light;
-					}
-				}
-			}
-		}
-	}
-
-	.pagination-bottom {
-		.-pagination {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			margin-top: 20px;
-
-			.-pageInfo {
-				font-size: 17px;
-				color: $brand-text-dark;
-			}
-
-			.-next {
-				font-size: 20px;
-				button {
-					cursor: pointer;
-				}
-			}
-
-			.-previous {
-				font-size: 20px;
-				button {
-					cursor: pointer;
-				}
-			}
-		}
-	}
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 20px;
+	background-color: $brand-info;
+	padding: 10px;
 }
 
-@media (min-width: $breaking-point-desktop) {
-	.table {
-		margin-right: 50px;
+.paginator-page {
+	color: $brand-default;
+	cursor: pointer;
+}
+
+.paginator-arrows {
+	color: $brand-default;
+	font-weight: 700;
+	font-size: 15px;
+}
+
+.paginator-active {
+	color: $brand-default;
+	text-align: center;
+	background-color: $brand-text;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	font-size: 15px;
+	vertical-align: middle;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.paginator-break {
+	color: $brand-default;
+}
+
+.responsiveTable {
+	width: 100%;
+	td {
+		word-break: break-all;
+		border: 2px red solid;
+		text-align: center;
+		border: 2px $brand-default solid;
+		padding: 5px;
+		color: $brand-text-dark;
+		font-size: 17px;
+		transition: all .5s ease;
+
+		&:hover, &:active {
+			background-color: $brand-text-light;
+		}
+
+		.tdBefore {
+			display: none;
+		}
+	}
+
+	th {
+		cursor: pointer;
+		word-break: break-all;
+		text-align: center;
+		border: 2px $brand-default solid;
+		background-color: $brand-info;
+		font-size: 17px;
+		color: $brand-default;
+		transition: all .5s ease;
+		user-select: none;
+		padding: 5px;
+
+		&:hover, active {
+			background-color: $brand-info-dark;
+		}
+	}
+
+	tr {
+		margin-top: 20px;
 	}
 }

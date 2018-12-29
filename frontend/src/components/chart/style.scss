@@ -3,16 +3,16 @@
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	
+
 
 	.legend-container {
 		display: flex;
 		flex-flow: row wrap;
-		align-content: center;
-		justify-content: center;
+		justify-content: flex-start;
 		margin-top: 80px;
 		height: 200px;
-		overflow-x: auto;
+		overflow: auto;
+		width: 92%;
 
 		.legend {
 			display: flex;

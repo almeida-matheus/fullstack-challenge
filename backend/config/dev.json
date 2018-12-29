@@ -7,8 +7,8 @@
 		"PARTICIPATION": "/participation"
 	},
 	"EXPRESS_VALIDATION_MESSAGES": {
-		"FIRSTNAME_BETWEEN_LENGTH_1_AND_20": "The First name must be between 2 and 20 characters",
-		"LASTNAME_BETWEEN_LENGTH_1_AND_20": "The Last name must be between 2 and 20 characters",
+		"FIRSTNAME_BETWEEN_LENGTH_1_AND_15": "The First name must be between 2 and 15 characters",
+		"LASTNAME_BETWEEN_LENGTH_1_AND_15": "The Last name must be between 2 and 15 characters",
 		"PARTICIPATION_BETWEEN_1_AND_100": "Participation must be between 1 and 100",
 		"PARTICIPATION_MAX_VALUE_EXCEEDED": "The sum of all participants cannot exceed 100%"
 	},

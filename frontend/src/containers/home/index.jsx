@@ -2,39 +2,30 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { toast } from 'react-toastify';
+import { confirmAlert } from 'react-confirm-alert';
 import Section from '../../components/section';
 import Navbar from '../../components/navbar';
 import ChartComponent from '../../components/chart';
+import ButtonComponent from '../../components/button';
 import TableComponent from '../../components/table';
 import SpinnerComponent from '../../components/spinner';
 import ParticpationForm from '../participation-form';
 import * as participationActions from '../../actions/participation';
 import constants from '../../constants';
 
+
 class HomeContainer extends Component {
 	constructor (props) {
 		super(props);
 		this.state = {
 			tableParams: {
-				showPaginationBottom: true,
-				showPageSizeOptions: false,
-				defaultPageSize: 4,
-				showPageJump: false,
-				loadingText: '',
+				itemsByPage: 5,
 				columns: [
-					{
-						Header: 'First name',
-						accessor: 'firstName'
-					},
-					{
-						Header: 'Last name',
-						accessor: 'lastName'
-					},
-					{
-						Header: 'Participation',
-						accessor: 'participation'
-					}
-				]
+					'First Name',
+					'Last Name',
+					'Participation'
+				],
+				handleDelete: this.handleDeleteParticipation
 			}
 		};
 	}
@@ -49,6 +40,53 @@ class HomeContainer extends Component {
 			.catch(() => {
 				toast.error(constants.MESSAGES.CATCH_ON_REQUEST);
 			});
+	}
+
+	handleDeleteParticipation = (model, deleteCallBack) => {
+		const {
+			participationActions
+		} = this.props;
+
+		confirmAlert({
+			customUI: ({ onClose }) => {
+				return (
+					<div className='custom-ui'>
+						<h1> Are you sure? </h1>
+						<p> You want to delete this data? </p>
+						<div className='buttons-container'>
+							<ButtonComponent
+								type="button"
+								cssType="default"
+								text="No"
+								isFetching={false}
+								disabled={false}
+								onClick={onClose}
+							/>
+							<ButtonComponent
+								type="button"
+								cssType="default"
+								text="Yes"
+								isFetching={false}
+								disabled={false}
+								onClick={() => {
+									participationActions.requestDeleteParticipation(model.id)
+										.then(() => {
+											onClose();
+										})
+										.catch(() => {
+											toast.error(constants.MESSAGES.CATCH_ON_REQUEST);
+											onClose();
+										})
+										.finally(() => {
+											deleteCallBack();
+										});
+								}}
+							/>
+						</div>
+					</div>
+				);
+			}
+		});
 	}
 
 	render () {
@@ -81,8 +119,16 @@ class HomeContainer extends Component {
 				</Navbar>
 				<Section>
 					<div className='section-desc-container'>
-						<h1 className='title'> DATA </h1>
-						<p className='desc'> Lorem ipsum dolor sit amet consectetur adipiscing elit </p>
+						<h1 className='title'>
+							{
+								constants.HOME.TITLE
+							}
+						</h1>
+						<p className='sub-title'>
+							{
+								constants.HOME.SUBTITLE
+							}
+						</p>
 					</div>
 				</Section>
 				<Section>
@@ -114,8 +160,8 @@ class HomeContainer extends Component {
 							)
 								:	(
 									<ChartComponent
-										width={320}
-										height={320}
+										width={280}
+										height={280}
 										data={chartData}
 										labels={chartLabels}
 										colors={chartColors}

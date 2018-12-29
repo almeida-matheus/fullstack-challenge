@@ -9,12 +9,14 @@ export default class ButtonComponent extends Component {
 			onClick,
 			text,
 			isFetching,
-			type
+			type,
+			cssType,
+			children
 		} = this.props;
 
 		return (
 			<button
-				className='button default'
+				className={`button ${cssType}`}
 				onClick={onClick}
 				type={type}
 			>
@@ -26,6 +28,9 @@ export default class ButtonComponent extends Component {
 					) : (
 						text.toUpperCase()
 					)
+				}
+				{
+					children
 				}
 			</button>
 		);

@@ -4,6 +4,10 @@ module.exports.getAllParticipations = () => {
 	return mock.getParticipations();
 };
 
+module.exports.deleteParticipation = (id) => {
+	return mock.deleteParticipations(id);
+};
+
 module.exports.addParticipation = (model) => {
 	return mock.addParticipation(model);
 };
