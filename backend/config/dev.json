@@ -1,7 +1,11 @@
 {
 	"GENERAL": {
 		"SERVER_HTTP_PORT": 7070,
-		"SERVER_HTTP_IP": "0.0.0.0"
+		"SERVER_HTTP_IP": "0.0.0.0",
+		"JWT_SECRET": "j2onfullstackchallendsecret",
+		"JWT_ADMIN_PASSWORD": "j20nwebtok3npassword",
+		"JWT_ADMIN_NAME": "admin",
+		"JWT_ADMIN_USERNAME": "admin"
 	},
 	"ENDPOINTS": {
 		"PARTICIPATION": "/participation"

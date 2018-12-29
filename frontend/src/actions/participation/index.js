@@ -1,8 +1,11 @@
 import queryString from 'querystring';
 import participationConstants from '../../redux-constants/participation';
 import constants from '../../constants';
+import * as utils from '../../utils';
 
 export function requestPostParticipation (params) {
+	const token = utils.generateFakeJwtToken();
+
 	return dispatch => {
 		dispatch({
 			type: participationConstants.REQUEST_POST_PARTICIPATION
@@ -11,8 +14,8 @@ export function requestPostParticipation (params) {
 		return fetch(`${constants.API.ROOT}${constants.API.ACTIONS.PARTICIPATION}`, {
 			method: constants.API.METHODS.POST,
 			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded'
-				// 'token': JSON.stringify(getCookie('token')
+				'Content-Type': 'application/x-www-form-urlencoded',
+				'x-access-token': token
 			},
 			body: queryString.stringify(params)
 		})
@@ -40,6 +43,8 @@ export function requestPostParticipation (params) {
 	};
 }
 export function requestDeleteParticipation (id) {
+	const token = utils.generateFakeJwtToken();
+
 	return dispatch => {
 		const params = {
 			id
@@ -52,8 +57,8 @@ export function requestDeleteParticipation (id) {
 		return fetch(`${constants.API.ROOT}${constants.API.ACTIONS.PARTICIPATION}`, {
 			method: constants.API.METHODS.DELETE,
 			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded'
-				// 'token': JSON.stringify(getCookie('token')
+				'Content-Type': 'application/x-www-form-urlencoded',
+				'x-access-token': token
 			},
 			body: queryString.stringify(params)
 		})
@@ -82,6 +87,8 @@ export function requestDeleteParticipation (id) {
 }
 
 export function requestGetParticipations () {
+	const token = utils.generateFakeJwtToken();
+
 	return dispatch => {
 		dispatch({
 			type: participationConstants.REQUEST_GET_PARTICIPATIONS
@@ -90,7 +97,7 @@ export function requestGetParticipations () {
 		return fetch(`${constants.API.ROOT}${constants.API.ACTIONS.PARTICIPATION}`, {
 			method: constants.API.METHODS.GET,
 			headers: {
-				// 'token': JSON.stringify(getCookie('token')
+				'x-access-token': token
 			}
 		})
 			.then(response => response.json())

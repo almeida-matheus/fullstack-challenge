@@ -21,6 +21,13 @@ const constants = {
 	HOME: {
 		TITLE: 'Employees',
 		SUBTITLE: 'Employees involvement and participation at work'
+	},
+	JWT: {
+		SECRET: 'j2onfullstackchallendsecret',
+		ADMIN_PASSWORD: 'j20nwebtok3npassword',
+		ADMIN_NAME: 'admin',
+		ADMIN_USERNAME: 'admin',
+		EXPIRES_IN: 86400
 	}
 };
 
