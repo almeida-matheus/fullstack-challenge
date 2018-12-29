@@ -47,14 +47,14 @@ describe('<Input />', () => {
 		expect(wrapper.find('InputTextComponent').length).toBe(1);
 	});
 
-	it('has a error label when err param is true', () => {
+	it('has a error span when err param is true', () => {
 		const wrapper = getWrapper(modelI);
-		expect(wrapper.find('label.error-label').length).toBe(1);
+		expect(wrapper.find('span.error-label').length).toBe(1);
 	});
 
-	it('has no error label when err param is true', () => {
+	it('has no error span when err param is true', () => {
 		const wrapper = getWrapper(modelII);
-		expect(wrapper.find('label.error-label').length).toBe(0);
+		expect(wrapper.find('span.error-label').length).toBe(0);
 	});
 
 	it('blur and change events is working', () => {

@@ -5,7 +5,6 @@ import { withFormik } from 'formik';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { toast } from 'react-toastify';
-
 import ButtonComponent from '../../components/button';
 import InputComponent from '../../components/input';
 import constants from '../../constants';

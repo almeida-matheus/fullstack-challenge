@@ -129,7 +129,6 @@ export default class TableComponent extends Component {
 													type="submit"
 													cssType="clear"
 													text=""
-													isFetching={false}
 													disabled={false}
 													onClick={() => {
 														handleDelete(model, this.handleDeleteCallBack);

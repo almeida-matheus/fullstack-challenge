@@ -10,7 +10,7 @@ const expressRoutes = require('../../routes');
 
 module.exports = (app) => {
 	const server = http.createServer(app);
-
+	const port = process.env.PORT || constants.GENERAL.SERVER_HTTP_PORT;
 	app.use(compression());
 	app.use(helmet());
 	app.use(cors());
@@ -21,7 +21,7 @@ module.exports = (app) => {
 	expressRoutes(app);
 
 	// HTTP SERVER
-	server.listen(constants.GENERAL.SERVER_HTTP_PORT, constants.GENERAL.SERVER_HTTP_IP, () => {
-		logger.info(`HTTP Server: Listering on ${constants.GENERAL.SERVER_HTTP_IP}:${constants.GENERAL.SERVER_HTTP_PORT}`);
+	server.listen(port, constants.GENERAL.SERVER_HTTP_IP, () => {
+		logger.info(`HTTP Server: Listering on ${constants.GENERAL.SERVER_HTTP_IP}:${port}`);
 	});
 };

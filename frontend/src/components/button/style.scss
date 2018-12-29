@@ -1,6 +1,14 @@
 .button {
 	cursor: pointer;
 
+	&:hover {
+		.spinner {
+			div {
+				border-color: $brand-info transparent transparent transparent;
+			}
+		}
+	}
+
 	&.default {
 		display: flex;
 		justify-content: center;

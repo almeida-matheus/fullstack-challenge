@@ -13,7 +13,6 @@ import ParticpationForm from '../participation-form';
 import * as participationActions from '../../actions/participation';
 import constants from '../../constants';
 
-
 class HomeContainer extends Component {
 	constructor (props) {
 		super(props);
@@ -66,19 +65,13 @@ class HomeContainer extends Component {
 								type="button"
 								cssType="default"
 								text="Yes"
-								isFetching={false}
 								disabled={false}
 								onClick={() => {
 									participationActions.requestDeleteParticipation(model.id)
-										.then(() => {
-											onClose();
-										})
-										.catch(() => {
-											toast.error(constants.MESSAGES.CATCH_ON_REQUEST);
-											onClose();
-										})
+										.catch(() => toast.error(constants.MESSAGES.CATCH_ON_REQUEST))
 										.finally(() => {
 											deleteCallBack();
+											onClose();
 										});
 								}}
 							/>

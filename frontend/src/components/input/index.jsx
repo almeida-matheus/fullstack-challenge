@@ -10,8 +10,7 @@ class InputComponent extends Component {
 		const {
 			type,
 			err,
-			label,
-			id
+			label
 		} = this.props;
 
 		let inputComponent = null;
@@ -35,14 +34,13 @@ class InputComponent extends Component {
 				}
 				{
 					err ? (
-						<label
+						<span
 							className='error-label'
-							htmlFor={id}
 						>
 							{
 								label
 							}
-						</label>
+						</span>
 					) : null
 				}
 			</div>

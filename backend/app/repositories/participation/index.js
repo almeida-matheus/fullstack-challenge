@@ -1,16 +1,10 @@
 const mock = require('../../modules/mock');
 
-module.exports.getAllParticipations = () => {
-	return mock.getParticipations();
-};
+module.exports.getAllParticipations = () => mock.getParticipations();
 
-module.exports.deleteParticipation = (id) => {
-	return mock.deleteParticipations(id);
-};
+module.exports.deleteParticipation = id => mock.deleteParticipations(id);
 
-module.exports.addParticipation = (model) => {
-	return mock.addParticipation(model);
-};
+module.exports.addParticipation = model => mock.addParticipation(model);
 
 module.exports.getParticipationPercentage = () => {
 	const participations = this.getAllParticipations();

@@ -3,6 +3,7 @@ import participationConstants from '../../redux-constants/participation';
 const initialState = {
 	isFetchingGet: false,
 	isFetchingPost: false,
+	isFetchingDelete: false,
 	didInvalidate: false,
 	result: []
 };
@@ -29,12 +30,14 @@ function participationReducer (state = initialState, action) {
 
 		case participationConstants.REQUEST_DELETE_PARTICIPATION:
 			return Object.assign({}, state, {
-				didInvalidate: false
+				didInvalidate: false,
+				isFetchingDelete: true
 			});
 
 		case participationConstants.STOP_DELETE_PARTICIPATION:
 			return Object.assign({}, state, {
-				didInvalidate: false
+				didInvalidate: false,
+				isFetchingDelete: false
 			});
 
 		case participationConstants.SET_PARTICIPATIONS:
