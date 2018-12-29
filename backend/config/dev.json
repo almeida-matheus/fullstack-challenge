@@ -5,7 +5,8 @@
 		"JWT_SECRET": "j2onfullstackchallendsecret",
 		"JWT_ADMIN_PASSWORD": "j20nwebtok3npassword",
 		"JWT_ADMIN_NAME": "admin",
-		"JWT_ADMIN_USERNAME": "admin"
+		"JWT_ADMIN_USERNAME": "admin",
+		"JWTEXPIRES_IN": 86400
 	},
 	"ENDPOINTS": {
 		"PARTICIPATION": "/participation"

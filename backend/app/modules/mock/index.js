@@ -6,7 +6,7 @@ const setInitialParticipations = () => {
 		global.participations = [
 			{
 				id: uuidv1(),
-				firstName: 'José',
+				firstName: 'Marciel',
 				lastName: 'Silva',
 				participation: 5,
 				color: randomColor()
@@ -70,7 +70,7 @@ const setInitialParticipations = () => {
 			{
 				id: uuidv1(),
 				firstName: 'João',
-				lastName: 'José',
+				lastName: 'Marciel',
 				participation: 5,
 				color: randomColor()
 			}

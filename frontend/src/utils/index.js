@@ -12,3 +12,7 @@ export function generateFakeJwtToken () {
 		expiresIn: constants.JWT.EXPIRES_IN
 	});
 }
+
+export function isDevelopmentEnv () {
+	return process.env.NODE_ENV.toLowerCase() === 'development';
+}

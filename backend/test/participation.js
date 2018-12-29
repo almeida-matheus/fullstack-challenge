@@ -1,7 +1,25 @@
+const jwt = require('jsonwebtoken');
+const constants = require('../app/modules/constants');
+
+const generateToken = () => {
+	const user = {
+		name: constants.GENERAL.JWT_ADMIN_NAME,
+		username: constants.GENERAL.JWT_ADMIN_USERNAME,
+		password: constants.GENERAL.JWT_ADMIN_PASSWORD
+	};
+
+	return jwt.sign(user, constants.GENERAL.JWT_SECRET, {
+		expiresIn: constants.GENERAL.JWTEXPIRES_IN
+	});
+};
+
 describe('PARTICIPATION \n', () => {
+	const token = generateToken();
+
 	it('GET ALL - Should return \n STATUS 200 \n SUCCESS FIELD TRUE \n RESULT LIST WITH firstName, lastName and participation fields', (done) => {
 		request(`http://${constants.GENERAL.SERVER_HTTP_IP}:${constants.GENERAL.SERVER_HTTP_PORT}`)
 			.get(constants.ENDPOINTS.PARTICIPATION)
+			.set('x-access-token', token)
 			.end((err, res) => {
 				res.should.have.status(200);
 				res.body.should.have.property('success').eql(true);
@@ -20,7 +38,7 @@ describe('PARTICIPATION \n', () => {
 	it('ADD PARTICIPATION - Should return \n STATUS 200 \n SUCCESS FIELD TRUE \n RESULT LIST WITH firstName, lastName and participation fields', (done) => {
 		request(`http://${constants.GENERAL.SERVER_HTTP_IP}:${constants.GENERAL.SERVER_HTTP_PORT}`)
 			.post(constants.ENDPOINTS.PARTICIPATION)
-
+			.set('x-access-token', token)
 			.type('form')
 			.send({
 				firstName: 'Matheus',
@@ -50,7 +68,7 @@ describe('PARTICIPATION \n', () => {
 	it('DELETE PARTICIPATION - Should return \n STATUS 200 \n SUCCESS FIELD TRUE \n RESULT LIST WITH firstName, lastName and participation fields', (done) => {
 		request(`http://${constants.GENERAL.SERVER_HTTP_IP}:${constants.GENERAL.SERVER_HTTP_PORT}`)
 			.delete(constants.ENDPOINTS.PARTICIPATION)
-
+			.set('x-access-token', token)
 			.type('form')
 			.send({
 				id: 'bae939f0-0aeb-11e9-be00-076a2761c2b7'
