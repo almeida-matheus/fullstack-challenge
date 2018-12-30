@@ -73,7 +73,8 @@ export default class TableComponent extends Component {
 			columns,
 			handleDelete,
 			data,
-			itemsByPage
+			itemsByPage,
+			maxParticipation
 		} = this.props;
 
 		const {
@@ -82,9 +83,39 @@ export default class TableComponent extends Component {
 
 		const pageCount = data.length / itemsByPage;
 
+		const totalParticipation = data.reduce(
+			(a, b) => parseInt(a, 0) + parseInt(b.participation, 0), 0
+		);
+
 		if (data.length > 0) {
 			return (
 				<div>
+					<div className='table-info'>
+						<div>
+							<span className='title'>
+								{
+									'Total:'
+								}
+							</span>
+							<span className='desc'>
+								{
+									totalParticipation
+								}
+							</span>
+						</div>
+						<div>
+							<span className='title'>
+								{
+									'Remaining:'
+								}
+							</span>
+							<span className='desc'>
+								{
+									maxParticipation - totalParticipation
+								}
+							</span>
+						</div>
+					</div>
 					<Table
 						cellSpacing="0"
 					>

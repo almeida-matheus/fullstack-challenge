@@ -19,6 +19,7 @@ class HomeContainer extends Component {
 		this.state = {
 			tableParams: {
 				itemsByPage: 5,
+				maxParticipation: 100,
 				columns: [
 					'First Name',
 					'Last Name',
