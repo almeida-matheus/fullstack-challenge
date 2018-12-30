@@ -69,7 +69,6 @@ export default class TableComponent extends Component {
 	}
 
 	render () {
-		// console.log("render");
 		const {
 			columns,
 			handleDelete,

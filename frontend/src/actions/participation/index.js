@@ -27,19 +27,12 @@ export function requestPostParticipation (params) {
 					dispatch(setParticipations(result));
 				}
 
-				dispatch({
-					type: participationConstants.STOP_POST_PARTICIPATION
-				});
-
 				return json;
 			})
-			.catch((result) => {
-				dispatch({
-					type: participationConstants.STOP_POST_PARTICIPATION
-				});
-
-				return result;
-			});
+			.catch((result) => result)
+			.finally(() => dispatch({
+				type: participationConstants.STOP_POST_PARTICIPATION
+			}));
 	};
 }
 export function requestDeleteParticipation (id) {
@@ -70,19 +63,12 @@ export function requestDeleteParticipation (id) {
 					dispatch(setParticipations(result));
 				}
 
-				dispatch({
-					type: participationConstants.STOP_DELETE_PARTICIPATION
-				});
-
 				return json;
 			})
-			.catch((result) => {
-				dispatch({
-					type: participationConstants.STOP_DELETE_PARTICIPATION
-				});
-
-				return result;
-			});
+			.catch((result) => result)
+			.finally(() => dispatch({
+				type: participationConstants.STOP_DELETE_PARTICIPATION
+			}));
 	};
 }
 
@@ -108,19 +94,12 @@ export function requestGetParticipations () {
 					dispatch(setParticipations(result));
 				}
 
-				dispatch({
-					type: participationConstants.STOP_GET_PARTICIPATIONS
-				});
-
 				return json;
 			})
-			.catch((result) => {
-				dispatch({
-					type: participationConstants.STOP_GET_PARTICIPATIONS
-				});
-
-				return result;
-			});
+			.catch((result) => result)
+			.finally(() => dispatch({
+				type: participationConstants.STOP_GET_PARTICIPATIONS
+			}));
 	};
 }
 
