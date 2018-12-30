@@ -8,6 +8,7 @@
   - helmet
   - cors
   - body-parser
+  - socket.io
 
 # Commands
 

@@ -15,83 +15,54 @@
 	}
 }
 
-.paginator-container {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin-top: 20px;
-	background-color: $brand-info;
-	padding: 10px;
-}
 
-.paginator-page {
-	color: $brand-default;
-	cursor: pointer;
-}
-
-.paginator-arrows {
-	color: $brand-default;
-	font-weight: 700;
-	font-size: 15px;
-	cursor: pointer;
-}
-
-.paginator-active {
-	color: $brand-default;
-	text-align: center;
-	background-color: $brand-text;
-	width: 25px;
-	height: 25px;
-	border-radius: 50%;
-	font-size: 15px;
-	vertical-align: middle;
-	font-weight: 700;
-	cursor: pointer;
-}
-
-.paginator-break {
-	color: $brand-default;
-}
-
-.responsiveTable {
+.responsible-table-container {
 	width: 100%;
-	td {
-		word-break: break-all;
-		border: 2px red solid;
-		text-align: center;
-		border: 2px $brand-default solid;
-		padding: 5px;
-		color: $brand-text-dark;
-		font-size: 17px;
-		transition: all .5s ease;
+	margin: 0 auto;
 
-		&:hover, &:active {
-			background-color: $brand-text-light;
+	.table {
+		box-shadow: 4px 4px 8px 0px rgba(255, 255, 255, 0.2);
+
+		.tbody {
+			overflow-y: auto;
+			height: 350px;
 		}
 
-		.tdBefore {
-			display: none;
+		.flex-row {
+			display: flex;
+
+			.column {
+				flex: 1;
+				cursor: pointer;
+				text-align: center;
+				border: 2px $brand-default solid;
+				word-break: break-all;
+				padding: 5px;
+				transition: all .5s ease;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				&.th {
+					color: $brand-default;
+					background-color: $brand-info;
+					font-size: 17px;
+
+					&:hover, &:active {
+						background-color: $brand-info-dark;
+					}
+				}
+
+
+				&.td {
+					color: $brand-text-dark;
+					font-size: 17px;
+
+					&:hover, &:active {
+						background-color: $brand-text-light;
+					}
+				}
+			}
 		}
-	}
-
-	th {
-		cursor: pointer;
-		word-break: break-all;
-		text-align: center;
-		border: 2px $brand-default solid;
-		background-color: $brand-info;
-		font-size: 17px;
-		color: $brand-default;
-		transition: all .5s ease;
-		user-select: none;
-		padding: 5px;
-
-		&:hover, active {
-			background-color: $brand-info-dark;
-		}
-	}
-
-	tr {
-		margin-top: 20px;
 	}
 }

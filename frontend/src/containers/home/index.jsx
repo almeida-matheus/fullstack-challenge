@@ -18,12 +18,12 @@ class HomeContainer extends Component {
 		super(props);
 		this.state = {
 			tableParams: {
-				itemsByPage: 5,
 				maxParticipation: 100,
 				columns: [
 					'First Name',
 					'Last Name',
-					'Participation'
+					'Participation',
+					''
 				],
 				handleDelete: this.handleDeleteParticipation
 			}

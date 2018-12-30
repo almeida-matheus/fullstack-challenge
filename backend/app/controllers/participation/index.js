@@ -6,7 +6,7 @@ const randomColor = require('../../modules/random-color');
 exports.getParticipations = (req, res) => {
 	res.status(200).json({
 		success: true,
-		result: participationRepository.getAllParticipations(),
+		result: participationRepository.getParticipations(),
 		errors: []
 	});
 };
@@ -35,7 +35,11 @@ exports.postParticipation = (req, res) => {
 			color: randomColor()
 		};
 
-		participationRepository.addParticipation(participationModel);
+		const result = participationRepository.addParticipation(participationModel);
+
+		if (global.io) {
+			global.io.emit('updateParticipations', { result });
+		}
 
 		res.status(200)
 			.json({
@@ -43,10 +47,6 @@ exports.postParticipation = (req, res) => {
 				errors: [],
 				result: []
 			});
-
-		if (global.io) {
-			global.io.emit('updateParticipations', { result: participationRepository.getAllParticipations() });
-		}
 	}
 };
 
@@ -55,7 +55,11 @@ exports.deleteParticipation = (req, res) => {
 		id
 	} = req.body;
 
-	participationRepository.deleteParticipation(id);
+	const result = participationRepository.deleteParticipation(id);
+
+	if (global.io) {
+		global.io.emit('updateParticipations', { result });
+	}
 
 	res.status(200)
 		.json({
@@ -63,8 +67,4 @@ exports.deleteParticipation = (req, res) => {
 			errors: [],
 			result: []
 		});
-
-	if (global.io) {
-		global.io.emit('updateParticipations', { result: participationRepository.getAllParticipations() });
-	}
 };

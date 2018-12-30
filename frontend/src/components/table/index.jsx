@@ -1,79 +1,17 @@
 import React, {
 	Component
 } from 'react';
-import {
-	Table,
-	Thead,
-	Tbody,
-	Tr,
-	Th,
-	Td
-} from 'react-super-responsive-table';
-import ReactPaginate from 'react-paginate';
 import ButtonComponent from '../button';
 import constants from '../../constants';
 
 export default class TableComponent extends Component {
-	constructor (props) {
-		super(props);
-
-		this.state = {
-			currentPage: 0
-		};
-	}
-
-	componentWillReceiveProps () {
-		this.updateCurrentPage();
-	}
-
-	handlePageClick = (data) => {
-		this.setState({
-			currentPage: data.selected
-		});
-	}
-
-	getTablePageData = (currentPage) => {
-		const {
-			data,
-			itemsByPage
-		} = this.props;
-
-		const maxRange = (currentPage + 1) * itemsByPage;
-		const minRange = maxRange - itemsByPage;
-
-		const dataSliced = data.slice(minRange, maxRange);
-
-		return dataSliced;
-	}
-
-	updateCurrentPage = () => {
-		const {
-			currentPage
-		} = this.state;
-
-		const data = this.getTablePageData(currentPage);
-
-		if (data.length <= 1 && currentPage !== 0) {
-			this.setState({
-				currentPage: currentPage - 1
-			});
-		}
-	}
-
 	render () {
-		const {
-			currentPage
-		} = this.state;
-
 		const {
 			columns,
 			handleDelete,
 			data,
-			itemsByPage,
 			maxParticipation
 		} = this.props;
-
-		const pageCount = Math.ceil(data.length / itemsByPage);
 
 		const totalParticipation = data.reduce(
 			(a, b) => parseInt(a, 0) + parseInt(b.participation, 0), 0
@@ -108,46 +46,49 @@ export default class TableComponent extends Component {
 							</span>
 						</div>
 					</div>
-					<Table
-						cellSpacing="0"
-					>
-						<Thead>
-							<Tr>
+					<div className='responsible-table-container'>
+						<div className='table'>
+							<div className='flex-row'>
 								{
-									columns.map((item, i) => {
+									columns.map((model, key) => {
 										return (
-											<Th key={i}>
+											<div
+												className='column th'
+												key={key}
+											>
 												{
-													item
+													model
 												}
-											</Th>
+											</div>
 										);
 									})
 								}
-							</Tr>
-						</Thead>
-						<Tbody>
-							{
-								this.getTablePageData(currentPage)
-									.map((model, i) => {
+							</div>
+							<div className='tbody'>
+
+								{
+									data.map((model, key) => {
 										return (
-											<Tr key={i}>
-												<Td>
+											<div
+												className='flex-row'
+												key={key}
+											>
+												<div className='column td'>
 													{
 														model.firstName
 													}
-												</Td>
-												<Td>
+												</div>
+												<div className='column td'>
 													{
 														model.lastName
 													}
-												</Td>
-												<Td>
+												</div>
+												<div className='column td'>
 													{
 														model.participation
 													}
-												</Td>
-												<Td className="action">
+												</div>
+												<div className='column td'>
 													<ButtonComponent
 														type="submit"
 														cssType="clear"
@@ -164,30 +105,14 @@ export default class TableComponent extends Component {
 															src={`${process.env.PUBLIC_URL}/images/delete-button.svg`}
 														/>
 													</ButtonComponent>
-												</Td>
-											</Tr>
+												</div>
+											</div>
 										);
 									})
-							}
-						</Tbody>
-					</Table>
-					<ReactPaginate
-						containerClassName='paginator-container'
-						pageClassName='paginator-page'
-						previousLinkClassName='paginator-arrows'
-						nextLinkClassName='paginator-arrows'
-						activeClassName='paginator-active'
-						breakClassName='paginator-break'
-						previousLabel='Previous'
-						nextLabel='Next'
-						breakLabel='...'
-						pageCount={pageCount}
-						initialPage={currentPage}
-						forcePage={currentPage}
-						marginPagesDisplayed={2}
-						pageRangeDisplayed={5}
-						onPageChange={this.handlePageClick}
-					/>
+								}
+							</div>
+						</div>
+					</div>
 				</div>
 			);
 		}

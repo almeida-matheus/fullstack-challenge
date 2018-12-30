@@ -5,11 +5,7 @@ import Table from './index.jsx';
 
 describe('<Table />', () => {
 	const modelI = {
-		showPaginationBottom: true,
-		showPageSizeOptions: false,
-		defaultPageSize: 4,
-		showPageJump: false,
-		loadingText: '',
+		maxParticipation: 100,
 		columns: [
 			{
 				Header: 'First name',
@@ -35,7 +31,8 @@ describe('<Table />', () => {
 				lastName: 'TesteII lastName',
 				participation: '50'
 			}
-		]
+		],
+		handleDelete: () => {}
 	};
 
 	const getWrapper = (model) => {

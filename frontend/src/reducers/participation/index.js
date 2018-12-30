@@ -37,7 +37,8 @@ function participationReducer (state = initialState, action) {
 		case participationConstants.STOP_DELETE_PARTICIPATION:
 			return Object.assign({}, state, {
 				didInvalidate: false,
-				isFetchingDelete: false
+				isFetchingDelete: false,
+				result: state.result.filter(model => model.id !== action.id)
 			});
 
 		case participationConstants.SET_PARTICIPATIONS:

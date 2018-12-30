@@ -84,17 +84,14 @@ module.exports.getParticipations = () => {
 	return participations;
 };
 
-module.exports.deleteParticipations = (id) => {
+module.exports.deleteParticipation = (id) => {
 	setInitialParticipations();
-
-	const participation = participations.find(item => item.id === id);
-	if (participation) {
-		participations = participations.filter(item => item.id !== id);
-	}
+	participations = participations.filter(item => item.id !== id);
+	return participations;
 };
 
 module.exports.addParticipation = (model) => {
 	setInitialParticipations();
 	participations.unshift(model);
-	return model;
+	return participations;
 };

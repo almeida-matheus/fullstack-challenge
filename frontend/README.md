@@ -1,9 +1,12 @@
+http://cube-fullstack-challenge-malmeida.surge.sh
+
 # FullStack challenge - FRONTEND
 
 #### Relevant Libs/Frameworks in use
 
   - react
   - redux
+  - socket.io-client
   - react-router
   - react-toastify
   - chart.js

@@ -49,7 +49,8 @@ export function requestDeleteParticipation (id) {
 			.then(response => response.json())
 			.catch((result) => result)
 			.finally(() => dispatch({
-				type: participationConstants.STOP_DELETE_PARTICIPATION
+				type: participationConstants.STOP_DELETE_PARTICIPATION,
+				id
 			}));
 	};
 }
