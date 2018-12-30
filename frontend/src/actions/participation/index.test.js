@@ -18,19 +18,18 @@ describe('Participations Actions', () => {
 		return store.dispatch(participationActions.requestGetParticipations())
 			.then(() => {
 				expect(
-					store
+					Array.isArray(store
 						.getActions()
-						.find(a => a.type === participationConstants.SET_PARTICIPATIONS).result.length
-				)
-					.toBeGreaterThan(0);
+						.find(a => a.type === participationConstants.SET_PARTICIPATIONS).result)
+				).toBe(true);
 			});
 	});
 
 	it('post participation action is working (start server)', () => {
 		const data = {
 			participation: 1,
-			firstName: 'firstNametest',
-			lastName: 'lastnametest'
+			firstName: 'Teste jest',
+			lastName: 'Teste jest'
 		};
 
 		const store = mockStore({
@@ -40,9 +39,9 @@ describe('Participations Actions', () => {
 			result: []
 		});
 
-		// return store.dispatch(participationActions.requestPostParticipation(data))
-		// 	.then(() => {
-		// 		expect(true).toBe(true);
-		// 	});
+		return store.dispatch(participationActions.requestPostParticipation(data))
+			.then((response) => {
+				expect(Array.isArray(response.result)).toBe(true);
+			});
 	});
 });

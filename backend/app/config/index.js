@@ -1,5 +1,5 @@
-const expressConfig = require('./express');
+const serverConfig = require('./server');
 
 module.exports = (app) => {
-	expressConfig(app);
+	serverConfig(app);
 };

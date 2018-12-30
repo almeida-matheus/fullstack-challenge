@@ -22,21 +22,21 @@ export default class TableComponent extends Component {
 		};
 	}
 
+	componentWillReceiveProps () {
+		this.updateCurrentPage();
+	}
+
 	handlePageClick = (data) => {
 		this.setState({
 			currentPage: data.selected
 		});
 	}
 
-	getDataByCurrentPage = () => {
+	getTablePageData = (currentPage) => {
 		const {
 			data,
 			itemsByPage
 		} = this.props;
-
-		const {
-			currentPage
-		} = this.state;
 
 		const maxRange = (currentPage + 1) * itemsByPage;
 		const minRange = maxRange - itemsByPage;
@@ -46,22 +46,14 @@ export default class TableComponent extends Component {
 		return dataSliced;
 	}
 
-	handleDeleteCallBack = () => {
-		const {
-			data,
-			itemsByPage
-		} = this.props;
-
+	updateCurrentPage = () => {
 		const {
 			currentPage
 		} = this.state;
 
-		const maxRange = (currentPage + 1) * itemsByPage;
-		const minRange = maxRange - itemsByPage;
+		const data = this.getTablePageData(currentPage);
 
-		const dataSliced = data.slice(minRange, maxRange);
-
-		if (dataSliced.length <= 0 && currentPage !== 0) {
+		if (data.length <= 1 && currentPage !== 0) {
 			this.setState({
 				currentPage: currentPage - 1
 			});
@@ -70,6 +62,10 @@ export default class TableComponent extends Component {
 
 	render () {
 		const {
+			currentPage
+		} = this.state;
+
+		const {
 			columns,
 			handleDelete,
 			data,
@@ -77,11 +73,7 @@ export default class TableComponent extends Component {
 			maxParticipation
 		} = this.props;
 
-		const {
-			currentPage
-		} = this.state;
-
-		const pageCount = data.length / itemsByPage;
+		const pageCount = Math.ceil(data.length / itemsByPage);
 
 		const totalParticipation = data.reduce(
 			(a, b) => parseInt(a, 0) + parseInt(b.participation, 0), 0
@@ -136,45 +128,46 @@ export default class TableComponent extends Component {
 						</Thead>
 						<Tbody>
 							{
-								this.getDataByCurrentPage().map((model, i) => {
-									return (
-										<Tr key={i}>
-											<Td>
-												{
-													model.firstName
-												}
-											</Td>
-											<Td>
-												{
-													model.lastName
-												}
-											</Td>
-											<Td>
-												{
-													model.participation
-												}
-											</Td>
-											<Td className="action">
-												<ButtonComponent
-													type="submit"
-													cssType="clear"
-													text=""
-													disabled={false}
-													onClick={() => {
-														handleDelete(model, this.handleDeleteCallBack);
-													}}
-												>
-													<img
-														alt="delete"
-														width={20}
-														height={20}
-														src={`${process.env.PUBLIC_URL}/images/delete-button.svg`}
-													/>
-												</ButtonComponent>
-											</Td>
-										</Tr>
-									);
-								})
+								this.getTablePageData(currentPage)
+									.map((model, i) => {
+										return (
+											<Tr key={i}>
+												<Td>
+													{
+														model.firstName
+													}
+												</Td>
+												<Td>
+													{
+														model.lastName
+													}
+												</Td>
+												<Td>
+													{
+														model.participation
+													}
+												</Td>
+												<Td className="action">
+													<ButtonComponent
+														type="submit"
+														cssType="clear"
+														text=""
+														disabled={false}
+														onClick={() => {
+															handleDelete(model);
+														}}
+													>
+														<img
+															alt="delete"
+															width={20}
+															height={20}
+															src={`${process.env.PUBLIC_URL}/images/delete-button.svg`}
+														/>
+													</ButtonComponent>
+												</Td>
+											</Tr>
+										);
+									})
 							}
 						</Tbody>
 					</Table>

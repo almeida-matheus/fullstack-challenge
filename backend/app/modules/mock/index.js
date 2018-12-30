@@ -1,9 +1,10 @@
 const uuidv1 = require('uuid/v1');
 const randomColor = require('../random-color');
+let participations;
 
 const setInitialParticipations = () => {
-	if (!(global.participations instanceof Array)) {
-		global.participations = [
+	if (!(participations instanceof Array)) {
+		participations = [
 			{
 				id: uuidv1(),
 				firstName: 'Marciel',
@@ -80,20 +81,20 @@ const setInitialParticipations = () => {
 
 module.exports.getParticipations = () => {
 	setInitialParticipations();
-	return global.participations;
+	return participations;
 };
 
 module.exports.deleteParticipations = (id) => {
 	setInitialParticipations();
 
-	const participation = global.participations.find(item => item.id === id);
+	const participation = participations.find(item => item.id === id);
 	if (participation) {
-		global.participations = global.participations.filter(item => item.id !== id);
+		participations = participations.filter(item => item.id !== id);
 	}
 };
 
 module.exports.addParticipation = (model) => {
 	setInitialParticipations();
-	global.participations.unshift(model);
+	participations.unshift(model);
 	return model;
 };

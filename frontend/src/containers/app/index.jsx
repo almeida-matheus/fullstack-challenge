@@ -2,9 +2,28 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { ToastContainer } from 'react-toastify';
+import { subscribeToUpdateParticipations } from '../../socket';
 import * as participationActions from '../../actions/participation';
 
 class AppContainer extends Component {
+	constructor (props) {
+		super(props);
+
+		subscribeToUpdateParticipations(this.handleOnUpdateParticipations);
+	}
+
+	handleOnUpdateParticipations = (err, response) => {
+		const {
+			participationActions
+		} = this.props;
+
+		if (response) {
+			if (response.result) {
+				participationActions.setParticipations(response.result);
+			}
+		}
+	}
+
 	render () {
 		return (
 			<ToastContainer
@@ -22,16 +41,10 @@ class AppContainer extends Component {
 	}
 }
 
-const mapStateToProps = (state) => {
-	return {
-		data: state.participations,
-	};
-};
-
 const mapDispatchToProps = (dispatch) => {
 	return {
 		participationActions: bindActionCreators(participationActions, dispatch)
 	};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);
+export default connect(null, mapDispatchToProps)(AppContainer);

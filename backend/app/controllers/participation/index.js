@@ -23,7 +23,8 @@ exports.postParticipation = (req, res) => {
 	if (errors.length > 0) {
 		res.status(400).json({
 			success: false,
-			errors
+			errors,
+			result: []
 		});
 	} else {
 		participationModel = {
@@ -36,7 +37,16 @@ exports.postParticipation = (req, res) => {
 
 		participationRepository.addParticipation(participationModel);
 
-		this.getParticipations(req, res);
+		res.status(200)
+			.json({
+				success: true,
+				errors: [],
+				result: []
+			});
+
+		if (global.io) {
+			global.io.emit('updateParticipations', { result: participationRepository.getAllParticipations() });
+		}
 	}
 };
 
@@ -47,5 +57,14 @@ exports.deleteParticipation = (req, res) => {
 
 	participationRepository.deleteParticipation(id);
 
-	this.getParticipations(req, res);
+	res.status(200)
+		.json({
+			success: true,
+			errors: [],
+			result: []
+		});
+
+	if (global.io) {
+		global.io.emit('updateParticipations', { result: participationRepository.getAllParticipations() });
+	}
 };

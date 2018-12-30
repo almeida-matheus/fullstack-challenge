@@ -20,15 +20,6 @@ export function requestPostParticipation (params) {
 			body: queryString.stringify(params)
 		})
 			.then(response => response.json())
-			.then((json) => {
-				const { result } = json;
-
-				if (result) {
-					dispatch(setParticipations(result));
-				}
-
-				return json;
-			})
 			.catch((result) => result)
 			.finally(() => dispatch({
 				type: participationConstants.STOP_POST_PARTICIPATION
@@ -56,15 +47,6 @@ export function requestDeleteParticipation (id) {
 			body: queryString.stringify(params)
 		})
 			.then(response => response.json())
-			.then((json) => {
-				const { result } = json;
-
-				if (result) {
-					dispatch(setParticipations(result));
-				}
-
-				return json;
-			})
 			.catch((result) => result)
 			.finally(() => dispatch({
 				type: participationConstants.STOP_DELETE_PARTICIPATION

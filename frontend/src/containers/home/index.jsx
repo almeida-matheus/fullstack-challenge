@@ -42,7 +42,7 @@ class HomeContainer extends Component {
 			});
 	}
 
-	handleDeleteParticipation = (model, deleteCallBack) => {
+	handleDeleteParticipation = (model) => {
 		const {
 			participationActions
 		} = this.props;
@@ -71,7 +71,6 @@ class HomeContainer extends Component {
 									participationActions.requestDeleteParticipation(model.id)
 										.catch(() => toast.error(constants.MESSAGES.CATCH_ON_REQUEST))
 										.finally(() => {
-											deleteCallBack();
 											onClose();
 										});
 								}}
