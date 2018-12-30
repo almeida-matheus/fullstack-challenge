@@ -33,7 +33,7 @@ $ npm run build
 ```
 
 ### Configuration
-Set your configurations in config file
+Set your configurations (server uri) in config file
 
 ```sh
 :root:/src/config/(dev/prod).json
