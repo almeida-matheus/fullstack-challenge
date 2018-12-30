@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
-    "start": "node server.js",
+    "start": "forever server.js",
     "test": "mocha --timeout 10000"
   },
   "repository": {
@@ -13,7 +13,7 @@
     "url": "git+https://bitbucket.org/amendowins/fullstack-challenge/src/master/backend/"
   },
   "keywords": [
-    "teste"
+    "fullstack-challenge-backend"
   ],
   "author": "Matheus Almeida",
   "license": "MIT",
@@ -23,6 +23,7 @@
     "cors": "^2.8.3",
     "express": "^4.15.3",
     "express-validator": "^5.3.1",
+    "forever": "^0.15.3",
     "helmet": "^3.6.1",
     "jsonwebtoken": "^8.4.0",
     "morgan": "^1.8.2",
