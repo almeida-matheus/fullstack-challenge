@@ -1,5 +1,3 @@
-http://cube-fullstack-challenge-malmeida.surge.sh
-
 # FullStack challenge - FRONTEND
 
 #### Relevant Libs/Frameworks in use
