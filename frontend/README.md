@@ -1,4 +1,3 @@
-teste
 # FullStack challenge - FRONTEND
 
 #### Relevant Libs/Frameworks in use
