@@ -2014,3 +2014,23 @@
 {"level":"info","message":"SOCKET.IO Server: New client","timestamp":"2018-12-31T14:21:50.555Z"}
 {"level":"info","message":"SOCKET.IO Server: New client","timestamp":"2018-12-31T14:23:05.311Z"}
 {"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T14:23:05.404Z"}
+{"level":"info","message":"HTTP Server: Listering on 0.0.0.0:7070","timestamp":"2018-12-31T14:26:33.491Z"}
+{"level":"info","message":"SOCKET.IO Server: Listering on 0.0.0.0:7070","timestamp":"2018-12-31T14:26:33.491Z"}
+{"level":"info","message":"SOCKET.IO Server: New client","timestamp":"2018-12-31T14:26:39.767Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T14:26:41.324Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T14:26:41.348Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T14:26:41.356Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T14:26:50.164Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T14:26:50.212Z"}
+{"level":"info","message":"SOCKET.IO Server: New client","timestamp":"2018-12-31T14:27:09.374Z"}
+{"level":"info","message":"SOCKET.IO Server: New client","timestamp":"2018-12-31T14:27:09.399Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T14:27:09.533Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T14:27:09.546Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T14:27:23.152Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T14:27:25.031Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T14:27:29.072Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T14:27:32.710Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T14:27:39.277Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T14:27:42.898Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T14:27:48.927Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T14:27:54.648Z"}
