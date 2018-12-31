@@ -2003,3 +2003,14 @@
 {"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T14:03:55.741Z"}
 {"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T14:03:58.017Z"}
 {"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T14:04:03.720Z"}
+{"level":"info","message":"HTTP Server: Listering on 0.0.0.0:7070","timestamp":"2018-12-31T14:20:51.417Z"}
+{"level":"info","message":"SOCKET.IO Server: Listering on 0.0.0.0:7070","timestamp":"2018-12-31T14:20:51.417Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T14:20:55.858Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T14:20:55.891Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T14:20:55.901Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T14:21:12.901Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T14:21:12.920Z"}
+{"level":"info","message":"SOCKET.IO Server: New client","timestamp":"2018-12-31T14:21:39.578Z"}
+{"level":"info","message":"SOCKET.IO Server: New client","timestamp":"2018-12-31T14:21:50.555Z"}
+{"level":"info","message":"SOCKET.IO Server: New client","timestamp":"2018-12-31T14:23:05.311Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T14:23:05.404Z"}
