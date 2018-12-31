@@ -1966,3 +1966,40 @@
 {"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-30T21:06:57.385Z"}
 {"level":"info","message":"SOCKET.IO Server: New client","timestamp":"2018-12-30T21:07:08.426Z"}
 {"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-30T21:07:08.516Z"}
+{"level":"info","message":"HTTP Server: Listering on 0.0.0.0:7070","timestamp":"2018-12-31T12:21:15.644Z"}
+{"level":"info","message":"SOCKET.IO Server: Listering on 0.0.0.0:7070","timestamp":"2018-12-31T12:21:15.645Z"}
+{"level":"info","message":"SOCKET.IO Server: New client","timestamp":"2018-12-31T12:21:32.005Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T12:21:32.082Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T12:21:34.882Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T12:21:36.888Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T12:21:48.677Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T12:21:48.695Z"}
+{"level":"info","message":"HTTP Server: Listering on 0.0.0.0:7070","timestamp":"2018-12-31T12:38:18.057Z"}
+{"level":"info","message":"SOCKET.IO Server: Listering on 0.0.0.0:7070","timestamp":"2018-12-31T12:38:18.058Z"}
+{"level":"info","message":"SOCKET.IO Server: New client","timestamp":"2018-12-31T12:38:40.543Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T12:38:40.657Z"}
+{"level":"info","message":"SOCKET.IO Server: New client","timestamp":"2018-12-31T12:39:00.462Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T12:39:00.557Z"}
+{"level":"info","message":"SOCKET.IO Server: New client","timestamp":"2018-12-31T12:39:04.002Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T12:39:04.067Z"}
+{"level":"info","message":"HTTP Server: Listering on 0.0.0.0:7070","timestamp":"2018-12-31T13:13:58.318Z"}
+{"level":"info","message":"SOCKET.IO Server: Listering on 0.0.0.0:7070","timestamp":"2018-12-31T13:13:58.319Z"}
+{"level":"info","message":"SOCKET.IO Server: New client","timestamp":"2018-12-31T13:14:09.680Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T13:14:09.769Z"}
+{"level":"info","message":"SOCKET.IO Server: New client","timestamp":"2018-12-31T13:17:18.726Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T13:17:18.829Z"}
+{"level":"info","message":"SOCKET.IO Server: New client","timestamp":"2018-12-31T13:17:34.618Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T13:17:34.701Z"}
+{"level":"info","message":"SOCKET.IO Server: New client","timestamp":"2018-12-31T13:18:42.370Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T13:18:42.472Z"}
+{"level":"info","message":"SOCKET.IO Server: New client","timestamp":"2018-12-31T13:18:50.426Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T13:18:50.519Z"}
+{"level":"info","message":"SOCKET.IO Server: New client","timestamp":"2018-12-31T13:21:27.623Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T13:21:27.754Z"}
+{"level":"info","message":"HTTP Server: Listering on 0.0.0.0:7070","timestamp":"2018-12-31T14:03:38.887Z"}
+{"level":"info","message":"SOCKET.IO Server: Listering on 0.0.0.0:7070","timestamp":"2018-12-31T14:03:38.888Z"}
+{"level":"info","message":"SOCKET.IO Server: New client","timestamp":"2018-12-31T14:03:48.032Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T14:03:48.144Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T14:03:55.741Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T14:03:58.017Z"}
+{"level":"info","message":"REQUESTING API: URL /participation","timestamp":"2018-12-31T14:04:03.720Z"}

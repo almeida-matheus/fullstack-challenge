@@ -19,7 +19,7 @@ export default class TableComponent extends Component {
 
 		if (data.length > 0) {
 			return (
-				<div>
+				<div className='table-content'>
 					<div className='table-info'>
 						<div>
 							<span className='title'>

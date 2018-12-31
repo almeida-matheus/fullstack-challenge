@@ -10,6 +10,9 @@ import './styles/index.scss';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import 'react-toastify/dist/ReactToastify.css';
 import * as serviceWorker from './serviceWorker';
+import 'react-app-polyfill/ie9';
+import 'core-js/es6/number';
+import 'core-js/modules/es7.promise.finally';
 
 const store = configureStore();
 
